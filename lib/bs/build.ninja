@@ -1,0 +1,18 @@
+rescript = 1
+g_finger := /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/@rescript/core/lib/ocaml/install.stamp
+g_finger := /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/@rescript/react/lib/ocaml/install.stamp
+rule astj
+  command = /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 11.1.1 -bs-jsx-module TmuxJsx -uncurried -open RescriptCore -absname -bs-ast -o $out $i
+o src/Main.ast : astj ../../src/Main.res
+rule deps
+  command = /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/rescript/darwinarm64/bsb_helper.exe -hash b427be82acd9aa0b82e2339cf41a3836 $in
+  restat = 1
+o src/Main.d : deps src/Main.ast
+rule mij
+  command = /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/rescript/darwinarm64/bsc.exe -I src -I /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/@rescript/core/lib/ocaml -I /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/@rescript/react/lib/ocaml -open RescriptCore  -uncurried -bs-package-name better-tmux -bs-package-output esmodule:$in_d:.res.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/Main.cmj src/Main.cmi ../../src/Main.res.js : mij src/Main.ast
+o src/TmuxJsx.ast : astj ../../src/TmuxJsx.res
+o src/TmuxJsx.d : deps src/TmuxJsx.ast
+o src/TmuxJsx.cmj src/TmuxJsx.cmi ../../src/TmuxJsx.res.js : mij src/TmuxJsx.ast

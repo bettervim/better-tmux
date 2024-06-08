@@ -1,0 +1,21 @@
+{
+  "name": "better-tmux",
+  "module": "index.js",
+  "type": "module",
+  "scripts": {
+    "rs:dev": "rescript build -w",
+    "dev": "bun src/Main.res.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "5.0.0"
+  },
+  "dependencies": {
+    "@rescript/core": "1.4.0",
+    "react": "^18.3.1",
+    "react-reconciler": "^0.29.2",
+    "rescript": "11.1.1"
+  }
+}

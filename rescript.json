@@ -1,0 +1,26 @@
+{
+  "name": "better-tmux",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "esmodule",
+      "in-source": true
+    }
+  ],
+  "jsx": {
+    "module": "TmuxJsx"
+  },
+  "suffix": ".res.js",
+  "bs-dependencies": [
+    "@rescript/core",
+    "@rescript/react"
+  ],
+  "bsc-flags": [
+    "-open RescriptCore"
+  ]
+}
