@@ -1,4 +1,4 @@
-let toString = (styles: TmuxJsx.Elements.style) => {
+let toString = (styles: TmuxJsx.Elements.props) => {
   let str = (~name, value) => value->Option.mapOr("", v => `${name}=${v}`)
   let bool = (~name, value) => value->Option.mapOr("", v => v ? name : "")
 

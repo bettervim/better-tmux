@@ -23,15 +23,15 @@ external array: array<element> => element = "%identity"
 module Elements = {
   external someElement: Jsx.element => option<Jsx.element> = "%identity"
 
-  type style = {
+  type props = {
+    children?: JsxU.element,
     bg?: string,
     fg?: string,
     bold?: bool,
-  }
+    padding?: int,
+    paddingLeft?: int,
+    paddingRight?: int,
 
-  type props = {
-    children?: JsxU.element,
-    style?: style,
   }
 
   @module("react/jsx-runtime")

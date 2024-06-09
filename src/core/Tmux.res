@@ -3,7 +3,6 @@ type options =
 
 type command = SetGlobal(options)
 
-
 let parseOptions = options => switch options {
   | StatusLeft(value) => `status-left "${value}"`
 }
