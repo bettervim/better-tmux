@@ -16,8 +16,17 @@ let rec make = (node: Reconcilier.Tree.t, ~body="") => {
     let (paddingLeft, paddingRight) = getPadding(props)
     let gap = props.gap->Option.mapOr("", spacing)
     let styles = props->Styles.inline
-    let children = children->Array.reduce("", (body, child) => `${body}${gap}${child->make}`)
+    let children = children->Array.reduceWithIndex("", (body, child, index) => {
+      let middle = if index === 0 {
+        ""
+      } else {
+        `${styles}${gap}`
+      }
 
+      `${body}${middle}${child->make}`
+    })
+
+    Console.log([styles, paddingLeft, children, paddingRight]->Array.join(""))
     [styles, paddingLeft, children, paddingRight]->Array.join("")
   }
 

@@ -16,6 +16,7 @@
   "dependencies": {
     "@rescript/core": "1.4.0",
     "@rescript/react": "0.12.2",
+    "react": "18.3.1",
     "react-reconciler": "0.29.2",
     "rescript": "11.1.1",
     "rescript-bun": "0.5.0"
