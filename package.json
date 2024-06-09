@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "rs:dev": "rescript build -w",
-    "dev": "bun src/index.js"
+    "dev": "bun src/index.js",
+    "sync": "git add . && git commit -m \"*\" && git push"
   },
   "devDependencies": {
     "@types/bun": "latest"
