@@ -1,7 +1,7 @@
-type element = React.element
+type element = Jsx.element
 
-type component<'props> = React.component<'props>
-type componentLike<'props, 'return> = React.componentLike<'props, 'return>
+type component<'props> = Jsx.component<'props>
+type componentLike<'props, 'return> = Jsx.componentLike<'props, 'return>
 
 type fragmentProps = {children?: element}
 
@@ -23,8 +23,17 @@ external array: array<element> => element = "%identity"
 module Elements = {
   external someElement: Jsx.element => option<Jsx.element> = "%identity"
 
-  type props = {children?: JsxU.element, qlqcoisa?: string}
-  
+  type style = {
+    bg?: string,
+    fg?: string,
+    bold?: bool,
+  }
+
+  type props = {
+    children?: JsxU.element,
+    style?: style,
+  }
+
   @module("react/jsx-runtime")
   external jsx: (string, props) => element = "jsx"
 

@@ -1,5 +1,3 @@
-Console.log("Hey :)")
-
 module Tree = {
   type prop = {
     name: string,
@@ -7,16 +5,53 @@ module Tree = {
   }
 
   type rec t =
-    | Element(string, TmuxJsx.Elements.props)
+    | Element(string, TmuxJsx.Elements.props, array<t>)
     | TextElement(Jsx.element)
 }
 
-type root = {mount: Tree.t => unit}
+type renderType = StatusLeft | StatusRight
 
-let root: root = {
-  mount: tree => {
-    Console.log2("Mount =>", tree->Obj.magic->Js.Json.stringifyWithSpace(2))
-  },
+type root = {
+  renderType: renderType,
+  mount: Tree.t => unit,
+}
+
+module Roots = {
+  module Styles = {
+    let toString = (styles: TmuxJsx.Elements.style) => {
+      let makeProp = (~name, value) => value->Option.mapOr("", v => `${name}=${v}`)
+      let makeBoolProp = (~name, value) => value->Option.mapOr("", v => v ? name : "")
+
+      let bg = makeProp(~name="bg", styles.bg)
+      let fg = makeProp(~name="fg", styles.fg)
+      let bold = makeBoolProp(~name="bold", styles.bold)
+
+      [bg, fg, bold]
+      ->Array.filter(v => v !== "")
+      ->Array.join(",")
+    }
+
+    let inline = styles => `#[${toString(styles)}]`
+  }
+
+  let rec toString = (node: Tree.t, content) => {
+    switch node {
+    | Element(_, props, children) => {
+        let styles = props.style->Option.mapOr("", Styles.inline)
+        let children = children->Array.reduce("", (acc, child) => `${acc}${child->toString("")}`)
+        `${styles}${children}`
+      }
+    | TextElement(value) => `${content}${value->Obj.magic}`
+    }
+  }
+  let statusLeft: root = {
+    renderType: StatusLeft,
+    mount: tree => {
+      let content = toString(tree, "")
+      Console.log(content)
+      Tmux.exec(SetGlobal(StatusLeft(content)))
+    },
+  }
 }
 
 module Reconcilier = ReactReconcilier.Make({
@@ -30,11 +65,14 @@ let reconcilier = Reconcilier.create({
   appendChildToContainer: (parent, child) => {
     parent.mount(child)
   },
-  appendInitialChild: (_, _) => {
-    Console.log("appendInitialChild")
+  appendInitialChild: (parent, child) => {
+    switch parent {
+    | Element(_, _, children) => children->Array.push(child)
+    | _ => ()
+    }
   },
   createInstance: (name, props, _) => {
-    Element(name, props)
+    Element(name, props, [])
   },
   createTextInstance: text => TextElement(text),
   prepareUpdate: (_, __, _, _) => {
@@ -99,9 +137,8 @@ let render = (app, root) => {
   reconcilier->Reconcilier.updateContainer(app, container, Js.Nullable.null, () => Js.Nullable.null)
 }
 
-render(
-  <div>
-    <div qlqcoisa="Here :)"> {"Teste"->TmuxJsx.string} </div>
-  </div>,
-  root,
-)
+type config = {statusLeft: TmuxJsx.element}
+
+let defineConfig = config => {
+  render(config.statusLeft, Roots.statusLeft)
+}

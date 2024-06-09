@@ -18,9 +18,11 @@
   "suffix": ".res.js",
   "bs-dependencies": [
     "@rescript/core",
-    "@rescript/react"
+    "rescript-bun"
   ],
   "bsc-flags": [
-    "-open RescriptCore"
+    "-open RescriptCore",
+    "-open RescriptBun",
+    "-open RescriptBun.Globals"
   ]
 }
