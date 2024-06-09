@@ -31,6 +31,7 @@ module Elements = {
     padding?: int,
     paddingLeft?: int,
     paddingRight?: int,
+    gap?: int,
 
   }
 
