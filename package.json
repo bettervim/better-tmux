@@ -4,8 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "sync": "git add . && git commit -m \"*\" && git push"
+    "lint": "turbo lint"
   },
   "devDependencies": {
     "turbo": "latest"
