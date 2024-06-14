@@ -26,7 +26,6 @@ let rec make = (node: Reconcilier.Tree.t, ~body="") => {
       `${body}${middle}${child->make}`
     })
 
-    Console.log([styles, paddingLeft, children, paddingRight]->Array.join(""))
     [styles, paddingLeft, children, paddingRight]->Array.join("")
   }
 
