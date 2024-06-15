@@ -1,0 +1,36 @@
+rescript = 1
+g_finger := /Users/marcosoliveira/projects/vmcp/better-tmux/packages/cli/node_modules/@rescript/core/lib/ocaml/install.stamp
+g_finger := /Users/marcosoliveira/projects/vmcp/better-tmux/packages/cli/node_modules/rescript-bun/lib/ocaml/install.stamp
+rule astj
+  command = /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/.pnpm/rescript@11.1.1/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 11.1.1 -bs-jsx-module TmuxJsx -uncurried -open RescriptCore -open RescriptBun -open RescriptBun.Globals -absname -bs-ast -o $out $i
+o src/Main.ast : astj ../../src/Main.res
+rule deps
+  command = /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/.pnpm/rescript@11.1.1/node_modules/rescript/darwinarm64/bsb_helper.exe -hash dab0a0ba4b444c43514d0243e9fd870e $in
+  restat = 1
+o src/Main.d : deps src/Main.ast
+rule mij
+  command = /Users/marcosoliveira/projects/vmcp/better-tmux/node_modules/.pnpm/rescript@11.1.1/node_modules/rescript/darwinarm64/bsc.exe -I src/core -I src/bindings -I src -I /Users/marcosoliveira/projects/vmcp/better-tmux/packages/cli/node_modules/@rescript/core/lib/ocaml -I /Users/marcosoliveira/projects/vmcp/better-tmux/packages/cli/node_modules/rescript-bun/lib/ocaml -open RescriptCore -open RescriptBun -open RescriptBun.Globals  -uncurried -bs-package-name better-tmux-cli -bs-package-output esmodule:$in_d:.res.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/Main.cmj src/Main.cmi ../../src/Main.res.js : mij src/Main.ast
+o src/bindings/ReactReconcilier.ast : astj ../../src/bindings/ReactReconcilier.res
+o src/bindings/ReactReconcilier.d : deps src/bindings/ReactReconcilier.ast
+o src/bindings/ReactReconcilier.cmj src/bindings/ReactReconcilier.cmi ../../src/bindings/ReactReconcilier.res.js : mij src/bindings/ReactReconcilier.ast
+o src/core/BunX.ast : astj ../../src/core/BunX.res
+o src/core/BunX.d : deps src/core/BunX.ast
+o src/core/BunX.cmj src/core/BunX.cmi ../../src/core/BunX.res.js : mij src/core/BunX.ast
+o src/core/Tmux.ast : astj ../../src/core/Tmux.res
+o src/core/Tmux.d : deps src/core/Tmux.ast
+o src/core/Tmux.cmj src/core/Tmux.cmi ../../src/core/Tmux.res.js : mij src/core/Tmux.ast
+o src/core/Parser.ast : astj ../../src/core/Parser.res
+o src/core/Parser.d : deps src/core/Parser.ast
+o src/core/Parser.cmj src/core/Parser.cmi ../../src/core/Parser.res.js : mij src/core/Parser.ast
+o src/core/Styles.ast : astj ../../src/core/Styles.res
+o src/core/Styles.d : deps src/core/Styles.ast
+o src/core/Styles.cmj src/core/Styles.cmi ../../src/core/Styles.res.js : mij src/core/Styles.ast
+o src/core/TmuxJsx.ast : astj ../../src/core/TmuxJsx.res
+o src/core/TmuxJsx.d : deps src/core/TmuxJsx.ast
+o src/core/TmuxJsx.cmj src/core/TmuxJsx.cmi ../../src/core/TmuxJsx.res.js : mij src/core/TmuxJsx.ast
+o src/core/Reconcilier.ast : astj ../../src/core/Reconcilier.res
+o src/core/Reconcilier.d : deps src/core/Reconcilier.ast
+o src/core/Reconcilier.cmj src/core/Reconcilier.cmi ../../src/core/Reconcilier.res.js : mij src/core/Reconcilier.ast

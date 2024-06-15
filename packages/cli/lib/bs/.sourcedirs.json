@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" , "src/bindings" , "src/core" ] , "pkgs" : [ [ "rescript-bun" , "/Users/marcosoliveira/projects/vmcp/better-tmux/packages/cli/node_modules/rescript-bun" ] , [ "@rescript/core" , "/Users/marcosoliveira/projects/vmcp/better-tmux/packages/cli/node_modules/@rescript/core" ] ] , "generated" : [] }

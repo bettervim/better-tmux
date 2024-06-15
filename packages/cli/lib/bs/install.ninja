@@ -1,0 +1,38 @@
+rescript = 1
+rule cp
+  command = cp $i $out
+rule touch
+ command = touch $out
+o Main.cmi : cp ../bs/src/Main.cmi
+o Main.cmj : cp ../bs/src/Main.cmj
+o Main.cmt : cp ../bs/src/Main.cmt
+o Main.res : cp ../../src/Main.res
+o ReactReconcilier.cmi : cp ../bs/src/bindings/ReactReconcilier.cmi
+o ReactReconcilier.cmj : cp ../bs/src/bindings/ReactReconcilier.cmj
+o ReactReconcilier.cmt : cp ../bs/src/bindings/ReactReconcilier.cmt
+o ReactReconcilier.res : cp ../../src/bindings/ReactReconcilier.res
+o BunX.cmi : cp ../bs/src/core/BunX.cmi
+o BunX.cmj : cp ../bs/src/core/BunX.cmj
+o BunX.cmt : cp ../bs/src/core/BunX.cmt
+o BunX.res : cp ../../src/core/BunX.res
+o Tmux.cmi : cp ../bs/src/core/Tmux.cmi
+o Tmux.cmj : cp ../bs/src/core/Tmux.cmj
+o Tmux.cmt : cp ../bs/src/core/Tmux.cmt
+o Tmux.res : cp ../../src/core/Tmux.res
+o Parser.cmi : cp ../bs/src/core/Parser.cmi
+o Parser.cmj : cp ../bs/src/core/Parser.cmj
+o Parser.cmt : cp ../bs/src/core/Parser.cmt
+o Parser.res : cp ../../src/core/Parser.res
+o Styles.cmi : cp ../bs/src/core/Styles.cmi
+o Styles.cmj : cp ../bs/src/core/Styles.cmj
+o Styles.cmt : cp ../bs/src/core/Styles.cmt
+o Styles.res : cp ../../src/core/Styles.res
+o TmuxJsx.cmi : cp ../bs/src/core/TmuxJsx.cmi
+o TmuxJsx.cmj : cp ../bs/src/core/TmuxJsx.cmj
+o TmuxJsx.cmt : cp ../bs/src/core/TmuxJsx.cmt
+o TmuxJsx.res : cp ../../src/core/TmuxJsx.res
+o Reconcilier.cmi : cp ../bs/src/core/Reconcilier.cmi
+o Reconcilier.cmj : cp ../bs/src/core/Reconcilier.cmj
+o Reconcilier.cmt : cp ../bs/src/core/Reconcilier.cmt
+o Reconcilier.res : cp ../../src/core/Reconcilier.res
+build install.stamp : touch Main.cmi Main.cmj ReactReconcilier.cmi ReactReconcilier.cmj BunX.cmi BunX.cmj Tmux.cmi Tmux.cmj Parser.cmi Parser.cmj Styles.cmi Styles.cmj TmuxJsx.cmi TmuxJsx.cmj Reconcilier.cmi Reconcilier.cmj 

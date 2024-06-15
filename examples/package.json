@@ -1,0 +1,13 @@
+{
+  "name": "better-tmux/examples",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "type": "module",
+  "dependencies": {
+    "@types/react": "^18.3.3",
+    "better-tmux": "workspace:*",
+    "ink": "^5.0.1",
+    "react": "18.3.1"
+  }
+}

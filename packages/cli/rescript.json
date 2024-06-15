@@ -1,5 +1,5 @@
 {
-  "name": "better-tmux",
+  "name": "better-tmux-cli",
   "sources": [
     {
       "dir": "src",
