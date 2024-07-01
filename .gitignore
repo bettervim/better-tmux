@@ -175,3 +175,4 @@ dist
 .DS_Store
 /lib
 *.res.js
+.turbo/
