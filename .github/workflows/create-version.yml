@@ -37,6 +37,7 @@ jobs:
           git config user.email github-actions@github.com
       - name: 'Generate new version ${{ github.event.inputs.versionType }}'
         run: |
+          cd packages/${{ github.event.inputs.package }} 
           npm version ${{ github.event.inputs.versionType }}   
       - name: Push the tags
         run: git push origin main --tags
