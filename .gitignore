@@ -173,6 +173,6 @@ dist
 
 # Finder (MacOS) folder config
 .DS_Store
-/lib
+./packages/**/lib/
 *.res.js
 .turbo/
