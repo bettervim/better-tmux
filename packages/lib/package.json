@@ -2,8 +2,14 @@
   "name": "better-tmux",
   "version": "0.0.1",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "default": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./presets": {
+      "types": "./dist/presets/index.d.ts",
+      "default": "./dist/presets/index.js"
+    }
   },
   "type": "module",
   "scripts": {

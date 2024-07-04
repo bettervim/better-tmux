@@ -1,10 +1,8 @@
-import { Text } from 'better-tmux'
+import { Text, BetterTmuxConfig } from 'better-tmux'
+import { minimal } from 'better-tmux/presets'
 
 const MyStatusLeft = () => (
   <Text>Test..</Text>
 )
 
-export default {
-  statusLeft: <MyStatusLeft />,
-  statusRight: <MyStatusLeft />
-}
+export default minimal
