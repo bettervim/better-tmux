@@ -10,7 +10,7 @@ export const Hostname = () => {
         {""}
       </box>
       <box padding={1} bg="#000000" fg={theme.foreground}>
-        {hostname}
+        marcos.local
       </box>
     </box>
   )
