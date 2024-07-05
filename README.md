@@ -1,6 +1,8 @@
 # better-tmux ⚡
 Unlock the full power of TMUX with TypeScript and JSX.
 
+<image src="./assets/preview.png" />
+
 ## Motivation
 TMUX is incredible and boosts productivity, but configuring it is tough. You can either use a pre-made config like "oh my tmux" with many widget options or create your own and struggle with complex setups. TMUX relies on shell scripts, making UI customization a challenge. Here's a stylish TMUX configuration example:
 
