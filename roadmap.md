@@ -14,3 +14,30 @@
 - [ ] Provide custom widgets and presets
 - [ ] Publish cli binary publicly via shell
 
+## Features
+Support for status-left and status-right:
+```javascript
+import { Text } from 'better-tmux'
+
+const MyStatusLeft = () => (
+  <Text>Test..</Text>
+)
+
+export default {
+  statusLeft: <MyStatusLeft />,
+  statusRight: <MyStatusLeft />
+}
+```
+
+Support for custom window:
+```javascript
+const Window = ({ active, number, name }) => {
+  <box>
+    {number} / {name}
+  </box>
+}
+
+export default {
+  window: (props) => <Window {...props} />
+}
+```
