@@ -9,6 +9,10 @@
     "./presets": {
       "types": "./dist/presets/index.d.ts",
       "default": "./dist/presets/index.js"
+    },
+    "./widgets": {
+      "types": "./dist/widgets/index.d.ts",
+      "default": "./dist/widgets/index.js"
     }
   },
   "type": "module",
@@ -16,6 +20,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
+    "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
     "react": "^18.3.1"
   }

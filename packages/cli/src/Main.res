@@ -1,3 +1,8 @@
+module Env = {
+  @set
+  external setTheme: (Bun.Env.t, string) => unit = "BETTER_TMUX_THEME"
+}
+
 let createRoot = exec => {
   let root: Reconcilier.root = {
     mount: tree => {
@@ -30,6 +35,7 @@ type windowParams = {
 type window = windowParams => TmuxJsx.element
 
 type config = {
+  theme: option<string>,
   statusLeft: option<TmuxJsx.element>,
   statusRight: option<TmuxJsx.element>,
   window: option<window>,
@@ -63,6 +69,7 @@ module Window = {
 @val external import_: string => promise<mod> = "import"
 
 let run = async () => {
+
   let options: flags<BunX.flag> = {
     file: {type_: "string"},
   }
@@ -76,6 +83,8 @@ let run = async () => {
 
   let path = Path.resolve([values.file])
   let {default: config} = await import_(path)
+
+  Env.setTheme(Bun.env, config.theme->Option.getOr("catppuccin"))
 
   switch config.statusLeft {
   | None => ()
@@ -91,6 +100,7 @@ let run = async () => {
   | None => ()
   | Some(window) => Window.render(window)
   }
+
 }
 
 run()->ignore

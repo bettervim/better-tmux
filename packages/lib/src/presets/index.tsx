@@ -1,7 +1,7 @@
 import { BetterTmuxConfig, WindowConfig } from '../types.js'
 
 const Window = ({ type, number, name }: WindowConfig) => {
-  let style = type === "last" ? { bg: "#fafafa", fg: "#000000" } : {}
+  let style = type === "active" ? { bg: "#fafafa", fg: "#000000" } : {}
 
   return (
     <box padding={1} {...style}>

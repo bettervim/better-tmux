@@ -1,3 +1,4 @@
+import { Theme } from './types.ts'
 import { ElementProps } from "./components.tsx"
 
 declare global {
@@ -8,6 +9,12 @@ declare global {
       'box': ElementProps
     }
   }
+
+  declare namespace NodeJS {
+    interface ProcessEnv {
+      BETTER_TMUX_THEME: Theme
+    }
+  }
 }
 
-export {}
+export { }

@@ -3,12 +3,11 @@
 - [x] Support for status-left
 - [x] Support for status-right
 - [x] Support for custom components using box and text
-- [ ] Support for window customization
-- [ ] Support for predefined themes
-    - [ ] Dracula
-    - [ ] Nord
-    - [ ] Catppuccin
-    - [ ] Ayu
+- [x] Support for window customization
+- [x] Support for predefined themes
+    - [x] Dracula
+    - [x] Nord
+    - [x] Catppuccin
 - [ ] Support for custom global options
 - [ ] Support for custom bindings
 - [ ] Provide a starter using create-better-tmux-app
