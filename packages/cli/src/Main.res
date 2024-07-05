@@ -84,7 +84,7 @@ let run = async () => {
   let path = Path.resolve([values.file])
   let {default: config} = await import_(path)
 
-  Env.setTheme(Bun.env, config.theme->Option.getOr("catppuccin"))
+  Env.setTheme(Bun.env, config.theme->Option.getOr("catppuccin-mocha"))
 
   switch config.statusLeft {
   | None => ()

@@ -1,8 +1,7 @@
-import { Box, BetterTmuxConfig, WindowConfig, useTheme } from 'better-tmux'
+import { Box, BetterTmuxConfig, WindowConfig } from 'better-tmux'
+import { Hostname } from 'better-tmux/widgets'
 
 const Window = ({ number, name }: WindowConfig) => {
-  const theme = useTheme()
-
   return (
     <Box padding={1}>
       {number}: {name}
@@ -10,6 +9,11 @@ const Window = ({ number, name }: WindowConfig) => {
   )
 }
 
+const StatusLeft = () => (
+  <Hostname />
+)
+
 export default {
+  statusLeft: <StatusLeft />,
   window: (window) => <Window {...window} />
 } satisfies BetterTmuxConfig
