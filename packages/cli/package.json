@@ -3,8 +3,8 @@
   "module": "index.js",
   "type": "module",
   "scripts": {
-    "rs:dev": "pnpm rescript build -w",
-    "dev": "bun src/Main.res.js --file ../../examples/index.tsx"
+    "dev": "pnpm rescript build -w",
+    "run": "bun src/Main.res.js --file ../../examples/index.tsx"
   },
   "dependencies": {
     "@rescript/core": "1.4.0",

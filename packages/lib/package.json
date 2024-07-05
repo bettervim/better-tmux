@@ -1,6 +1,6 @@
 {
   "name": "better-tmux",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -17,7 +17,8 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch"
   },
   "dependencies": {
     "@types/node": "^20.14.9",

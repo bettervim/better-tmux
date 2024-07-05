@@ -51,7 +51,7 @@ let catppuccinLatte = {
 
 export function useTheme(): ThemePalette {
   const theme = process.env.BETTER_TMUX_THEME
-  console.log(theme)
+
   switch (theme) {
     case 'catppuccin-mocha': return catppuccinMocha
     case 'catppuccin-macchiato': return catppuccinMacchiato
