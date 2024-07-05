@@ -13,9 +13,6 @@ set -g status-right "#[fg=colour235,bg=colour148,nobold,noitalics,nounderscore]î
 
 On the other hand, TypeScript (and JavaScript) plus JSX are a great way to deal with UIs, so, what if you could configure your TMUX using these two technologies? Here we go ğŸƒ
 
-## Preview
-TBD
-
 ## Installation
 Install `better-tmux` CLI:
 ```sh
