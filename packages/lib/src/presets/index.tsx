@@ -1,10 +1,11 @@
-import { BetterTmuxConfig } from '../types.js'
+import { BetterTmuxConfig, WindowConfig } from '../types.js'
 
-const MyStatus = () => (
-  <box>Test..</box>
+const Window = ({ number, name }: WindowConfig) => (
+  <box padding={1} bg="#fafafa" fg="#000000">
+    {number}: {name} 
+  </box>
 )
 
 export const minimal = {
-  statusLeft: <MyStatus />,
-  statusRight: <MyStatus />
+  window: (window) => <Window {...window} />
 } satisfies BetterTmuxConfig
