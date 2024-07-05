@@ -24,7 +24,7 @@ curl -sSL https://raw.githubusercontent.com/bettervim/tmux-ease/main/scripts/ins
 ```
 
 ## Setting up your config
-Clone this repository, and install dependencies using your favorite package manager:
+Clone this [template](https://github.com/bettervim/better-tmux-template), and install dependencies using your favorite package manager:
 
 ```sh
 yarn install
