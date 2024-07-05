@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm rescript build -w",
+    "rs:build": "pnpm rescript build",
+    "build": "bun build src/Main.res.js --compile --outfile ./better-tmux",
     "run": "bun src/Main.res.js --file ../../examples/index.tsx"
   },
   "dependencies": {
