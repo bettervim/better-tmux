@@ -1,4 +1,4 @@
-> 💡  This project is experimental, but definitely worth trying. If you encounter any issues, please open an issue or DM me on [Twitter](https://x.com/vmaarcosp). Don't hesitate to reach out 👋🏻
+> 💡  This project is experimental and still in progress, and there is no documentation available yet 😅, but definitely worth trying. If you encounter any issues, please open an issue or DM me on [Twitter](https://x.com/vmaarcosp). Don't hesitate to reach out 👋🏻
 
 # better-tmux ⚡
 Unlock the full power of TMUX with TypeScript and JSX.
