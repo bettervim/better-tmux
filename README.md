@@ -20,7 +20,7 @@ On the other hand, TypeScript (and JavaScript) plus JSX are a great way to deal 
 ## Installation
 Install `better-tmux` CLI:
 ```sh
-curl -sSL https://raw.githubusercontent.com/bettervim/tmux-ease/main/scripts/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/install.sh | bash
 ```
 
 ## Setting up your config
