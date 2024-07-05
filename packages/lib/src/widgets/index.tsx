@@ -4,6 +4,7 @@ export const Hostname = () => {
   const theme = useTheme()
 
   const hostname = "#H"
+
   return (
     <box>
       <box padding={1} bg={theme.primary} fg={theme.background}>
