@@ -3,6 +3,7 @@
 - [x] Support for status-left
 - [x] Support for status-right
 - [x] Support for custom components using box and text
+- [ ] Support for window customization
 - [ ] Support for predefined themes
     - [ ] Dracula
     - [ ] Nord

@@ -1,10 +1,14 @@
 import { BetterTmuxConfig, WindowConfig } from '../types.js'
 
-const Window = ({ number, name }: WindowConfig) => (
-  <box padding={1} bg="#fafafa" fg="#000000">
-    {number}: {name} 
-  </box>
-)
+const Window = ({ type, number, name }: WindowConfig) => {
+  let style = type === "last" ? { bg: "#fafafa", fg: "#000000" } : {}
+
+  return (
+    <box padding={1} {...style}>
+      {number}: {name}
+    </box>
+  )
+}
 
 export const minimal = {
   window: (window) => <Window {...window} />

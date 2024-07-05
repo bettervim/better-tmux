@@ -1,7 +1,7 @@
 export type WindowConfig = {
   number: number,
   name: string,
-  active: boolean
+  type: "active" | "normal" 
 }
 
 export type BetterTmuxConfig = {

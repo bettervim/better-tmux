@@ -1,21 +1,28 @@
-module Roots = {
-  let statusLeft: Reconcilier.root = {
+let createRoot = exec => {
+  let root: Reconcilier.root = {
     mount: tree => {
       let body = Parser.make(tree)
-      Tmux.exec(SetGlobal(StatusLeft(body)))
+      exec(body)
     },
   }
 
-  let statusRight: Reconcilier.root = {
-    mount: tree => {
-      let body = Parser.make(tree)
-      Tmux.exec(SetGlobal(StatusRight(body)))
-    },
-  }
+  root
 }
 
+module Roots = {
+  let statusLeft = createRoot(body => Tmux.exec(SetGlobal(StatusLeft(body))))
+  let statusRight = createRoot(body => Tmux.exec(SetGlobal(StatusRight(body))))
+  let activeWindow = createRoot(body => Tmux.exec(SetGlobal(WindowStatusCurrentFormat(body))))
+  let normalWindow = createRoot(body => Tmux.exec(SetGlobal(WindowStatusFormat(body))))
+}
+
+type windowType = [
+  | #active
+  | #normal
+]
+
 type windowParams = {
-  active: bool,
+  @as("type") type_: windowType,
   number: string,
   name: string,
 }
@@ -33,34 +40,23 @@ type flags<'value> = {file: 'value}
 
 module Window = {
   let render = (window: window) => {
-    let activeWindow = window({
-      active: true,
-      name: "#W",
-      number: "#I",
-    })
+    Reconcilier.render(
+      window({
+        type_: #active,
+        name: "#W",
+        number: "#I",
+      }),
+      Roots.activeWindow,
+    )
 
-    let normalWindow = window({
-      active: false,
-      name: "#W",
-      number: "#I",
-    })
-
-    let activeRoot: Reconcilier.root = {
-      mount: tree => {
-        let body = Parser.make(tree)
-        Tmux.exec(SetGlobal(WindowStatusFormat(body)))
-      },
-    }
-
-    let normalRoot: Reconcilier.root = {
-      mount: tree => {
-        let body = Parser.make(tree)
-        Tmux.exec(SetGlobal(WindowStatusCurrentFormat(body)))
-      },
-    }
-
-    Reconcilier.render(activeWindow, activeRoot)
-    Reconcilier.render(normalWindow, normalRoot)
+    Reconcilier.render(
+      window({
+        type_: #normal,
+        name: "#W",
+        number: "#I",
+      }),
+      Roots.normalWindow,
+    )
   }
 }
 
@@ -77,6 +73,7 @@ let run = async () => {
     strict: true,
     allowPositionals: true,
   })
+
   let path = Path.resolve([values.file])
   let {default: config} = await import_(path)
 
