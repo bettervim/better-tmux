@@ -30,18 +30,30 @@ curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/u
 ```
 
 ## Setting up your config
-Clone this [template](https://github.com/bettervim/better-tmux-template), and install dependencies using your favorite package manager:
+In the folder where you want to store your configuration (we recommend ~/), run the following command:
+```sh
+git clone https://github.com/bettervim/better-tmux-template.git ~/better-tmux && rm -rf better-tmux/.git
+```
+Now, install the dependencies using your favorite package manager:
 
 ```sh
-yarn install
-# or pnpm install
+pnpm install
+# or bun install
+# or yarn install
 # or npm install
 ```
 
-Modify your `tmux.conf` to execute the CLI on every reload and point to the `index.tsx` of your config folder:
+## Testing
+
+To test changes in your configuration, you'll need to run the better-tmux CLI, specifying your configuration file. For example:
+```sh
+better-tmux ~/better-tmux/index.tsx
+```
+
+We recommend you to modify your `tmux.conf` to execute the CLI on every reload and point to the `index.tsx` of your config folder:
 ```sh
 # ~/tmux.conf
-run-shell 'better-tmux --file /path/to/your-config/index.tsx'
+run-shell 'better-tmux --file ~/better-tmux/index.tsx'
 ```
 
 ## Basic usage
