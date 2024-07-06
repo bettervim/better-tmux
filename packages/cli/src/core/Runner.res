@@ -1,8 +1,3 @@
-module Env = {
-  @set
-  external setTheme: (Bun.Env.t, string) => unit = "BETTER_TMUX_THEME"
-}
-
 let createRoot = exec => {
   let root: Reconcilier.root = {
     mount: tree => {
@@ -14,45 +9,41 @@ let createRoot = exec => {
   root
 }
 
-module Roots = {
-  let statusLeft = createRoot(body => Tmux.exec(SetGlobal(StatusLeft(body))))
-  let statusRight = createRoot(body => Tmux.exec(SetGlobal(StatusRight(body))))
-  let activeWindow = createRoot(body => Tmux.exec(SetGlobal(WindowStatusCurrentFormat(body))))
-  let normalWindow = createRoot(body => Tmux.exec(SetGlobal(WindowStatusFormat(body))))
+module StatusRenderer = {
+  let leftRoot = createRoot(body => Tmux.exec(SetGlobal(StatusLeft(body))))
+  let rightRoot = createRoot(body => Tmux.exec(SetGlobal(StatusRight(body))))
+  let render = (~theme: BetterTmux.themePalette, ~status: Config.status) => {
+    switch status.bg {
+    | None => Tmux.exec(SetGlobal(StatusBg(theme.background)))
+    | Some(bg) => Tmux.exec(SetGlobal(StatusBg(bg)))
+    }
+
+    switch status.left {
+    | None => Tmux.exec(SetGlobal(StatusLeft("")))
+    | Some(tree) => Reconcilier.render(tree, leftRoot)
+    }
+
+    switch status.right {
+    | None => Tmux.exec(SetGlobal(StatusRight("")))
+    | Some(tree) => Reconcilier.render(tree, rightRoot)
+    }
+  }
 }
-
-type windowType = [
-  | #active
-  | #normal
-]
-
-type windowParams = {
-  @as("type") type_: windowType,
-  number: string,
-  name: string,
-}
-
-type window = windowParams => TmuxJsx.element
-
-type config = {
-  theme: option<string>,
-  statusLeft: option<TmuxJsx.element>,
-  statusRight: option<TmuxJsx.element>,
-  window: option<window>,
-}
-type mod = {default: config}
 
 type flags<'value> = {file: 'value}
 
-module Window = {
-  let render = (window: window) => {
+module WindowRenderer = {
+  let activeRoot = createRoot(body => Tmux.exec(SetGlobal(WindowStatusCurrentFormat(body))))
+  let normalRoot = createRoot(body => Tmux.exec(SetGlobal(WindowStatusFormat(body))))
+
+  let render = (window: Config.window) => {
     Reconcilier.render(
       window({
         type_: #active,
         name: "#W",
         number: "#I",
       }),
-      Roots.activeWindow,
+      activeRoot,
     )
 
     Reconcilier.render(
@@ -61,15 +52,12 @@ module Window = {
         name: "#W",
         number: "#I",
       }),
-      Roots.normalWindow,
+      normalRoot,
     )
   }
 }
 
-@val external import_: string => promise<mod> = "import"
-
 let run = async () => {
-
   let options: flags<BunX.flag> = {
     file: {type_: "string"},
   }
@@ -82,23 +70,18 @@ let run = async () => {
   })
 
   let path = Path.resolve([values.file])
-  let {default: config} = await import_(path)
+  let {default: config} = await Config.import_(path)
 
-  Env.setTheme(Bun.env, config.theme->Option.getOr("catppuccin-mocha"))
-
-  switch config.statusLeft {
-  | None => ()
-  | Some(statusLeft) => Reconcilier.render(statusLeft, Roots.statusLeft)
-  }
-
-  switch config.statusRight {
-  | None => ()
-  | Some(statusRight) => Reconcilier.render(statusRight, Roots.statusRight)
-  }
+  let (theme, themeName) = Theme.getCurrent(config.theme)
+  Theme.setEnv(Bun.env, themeName)
 
   switch config.window {
+  | Some(window) => WindowRenderer.render(window)
   | None => ()
-  | Some(window) => Window.render(window)
   }
 
+  switch config.status {
+  | Some(status) => StatusRenderer.render(~theme, ~status)
+  | None => ()
+  }
 }

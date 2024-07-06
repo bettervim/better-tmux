@@ -6,48 +6,57 @@ type ThemePalette = {
 }
 
 
-let nord = {
+const nord = {
   foreground: "#D8DEE9",
   background: "#2E3440",
   primary: "#94BECE",
   secondary: "#94BECE",
 }
 
-let dracula = {
+const dracula = {
   foreground: "#f8f8f2",
   background: "#282a36",
   primary: "#bd93f9",
   secondary: "#50fa7b",
 }
 
-let catppuccinMocha = {
+const catppuccinMocha = {
   foreground: "#cdd6f4",
   background: "#282a36",
   primary: "#b1baf7",
   secondary: "#50fa7b",
 }
 
-let catppuccinMacchiato = {
+const catppuccinMacchiato = {
   foreground: "#cad3f5",
   background: "#24273a",
   primary: "#b7bdf8",
   secondary: "#50fa7b",
 }
 
-let catppuccinFrappe = {
+const catppuccinFrappe = {
   foreground: "#cad3f5",
   background: "#24273a",
   primary: "#babbf1",
   secondary: "#50fa7b",
 }
 
-let catppuccinLatte = {
+const catppuccinLatte = {
   foreground: "#4c4f69",
   background: "#dce0e8",
   primary: "#7287fd",
   secondary: "#50fa7b",
 }
 
+
+export const themes = {
+  nord,
+  dracula,
+  catppuccinLatte,
+  catppuccinMocha,
+  catppuccinMacchiato,
+  catppuccinFrappe
+}
 
 export function useTheme(): ThemePalette {
   const theme = process.env.BETTER_TMUX_THEME

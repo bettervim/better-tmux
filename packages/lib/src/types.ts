@@ -12,9 +12,14 @@ export type Theme =
  | "nord"
  | "dracula"
 
+export type Status = {
+  bg?: string,
+  left?: JSX.Element,
+  right?: JSX.Element,
+}
+
 export type BetterTmuxConfig = {
   theme?: Theme, 
-  statusLeft?: JSX.Element,
-  statusRight?: JSX.Element,
+  status?: Status,
   window?: (config: WindowConfig) => JSX.Element
 }
