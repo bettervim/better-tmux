@@ -1,18 +1,56 @@
-import { useTheme } from "../hooks/use-theme.js"
+import { tmux } from "../tmux.js"
+import { Widget, WidgetIcon, WidgetLabel } from "./widget.js"
+export * from './widget.js'
 
-export const Hostname = () => {
-  const theme = useTheme()
+type CommonModuleProps = {
+  icon?: string,
+}
 
-  const hostname = "#H"
+type HostnameProps = CommonModuleProps
+
+export const Hostname = ({ icon }: HostnameProps) => {
+  return (
+    <Widget>
+      <WidgetIcon>
+        {icon ?? ""}
+      </WidgetIcon>
+      <WidgetLabel>
+        {tmux.globals.hostname}
+      </WidgetLabel>
+    </Widget>
+  )
+}
+
+type SessionNameProps = CommonModuleProps
+
+export const SessionName = ({ icon }: SessionNameProps) => {
+  return (
+    <Widget>
+      <WidgetIcon>
+        {icon ?? ""}
+      </WidgetIcon>
+      <WidgetLabel>
+        {tmux.globals.sessionName}
+      </WidgetLabel>
+    </Widget>
+  )
+}
+
+type ClockProps = CommonModuleProps & {
+  format?: string
+}
+
+export const Clock = ({ format, icon }: ClockProps) => {
+  const value = format ?? `${tmux.globals.hour_24}:${tmux.globals.minute}`
 
   return (
-    <box>
-      <box padding={1} bg={theme.primary} fg={theme.background}>
-        {""}
-      </box>
-      <box padding={1} bg="#000000" fg={theme.foreground}>
-        {hostname}
-      </box>
-    </box>
+    <Widget>
+      <WidgetIcon>
+        {icon ?? ""}
+      </WidgetIcon>
+      <WidgetLabel>
+        {value}
+      </WidgetLabel>
+    </Widget>
   )
 }

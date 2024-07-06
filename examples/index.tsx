@@ -1,9 +1,9 @@
-import { Box, BetterTmuxConfig, WindowConfig, useTheme } from 'better-tmux'
-import { Hostname } from 'better-tmux/widgets'
+import { Box, BetterTmuxConfig, WindowConfig, useTheme, tmux } from 'better-tmux'
+import { Clock, SessionName } from 'better-tmux/widgets'
 
 const Window = ({ type, number, name }: WindowConfig) => {
   let theme = useTheme()
-  let styles = type === "active" ? { bg: theme.primary, fg: theme.background } : {}
+  let styles = type === "active" ? { bg: theme.primary, fg: theme.background, bold: true } : {}
 
   return (
     <Box padding={1} {...styles}>
@@ -12,12 +12,20 @@ const Window = ({ type, number, name }: WindowConfig) => {
   )
 }
 
-
 const StatusLeft = () => (
-  <Hostname />
+  <Box>
+    <SessionName />
+  </Box>
+)
+
+const StatusRight = () => (
+  <Box>
+    <Clock format={`${tmux.globals.hour_12}:${tmux.globals.minute}`} />
+  </Box>
 )
 
 export default {
   statusLeft: <StatusLeft />,
+  statusRight: <StatusRight />,
   window: (window) => <Window {...window} />
 } satisfies BetterTmuxConfig
