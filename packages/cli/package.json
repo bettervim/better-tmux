@@ -9,6 +9,7 @@
     "reload": "bun src/Main.res.js --file ../../examples/index.tsx"
   },
   "dependencies": {
+    "better-tmux": "workspace:*",
     "@rescript/core": "1.4.0",
     "@rescript/react": "0.12.2",
     "@types/node": "^20.14.9",

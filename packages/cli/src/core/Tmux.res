@@ -1,4 +1,5 @@
 type options = 
+  | StatusBg(string)
   | StatusLeft(string)
   | StatusRight(string)
   | WindowStatusCurrentFormat(string)
@@ -7,6 +8,7 @@ type options =
 type command = SetGlobal(options)
 
 let parseOptions = options => switch options {
+  | StatusBg(value) => `status-bg "${value}"`
   | StatusLeft(value) => `status-left "${value}"`
   | StatusRight(value) => `status-right "${value}"`
   | WindowStatusCurrentFormat(value) => `window-status-current-format "${value}"`

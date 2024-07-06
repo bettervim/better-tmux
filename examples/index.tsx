@@ -25,7 +25,10 @@ const StatusRight = () => (
 )
 
 export default {
-  statusLeft: <StatusLeft />,
-  statusRight: <StatusRight />,
+  theme: 'dracula',
+  status: {
+    left: <StatusLeft />,
+    right: <StatusRight />,
+  },
   window: (window) => <Window {...window} />
 } satisfies BetterTmuxConfig

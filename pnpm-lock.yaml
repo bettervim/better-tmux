@@ -42,6 +42,9 @@ importers:
       '@types/node':
         specifier: ^20.14.9
         version: 20.14.9
+      better-tmux:
+        specifier: workspace:*
+        version: link:../lib
       react:
         specifier: 18.3.1
         version: 18.3.1
