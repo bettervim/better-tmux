@@ -23,6 +23,12 @@ Install `better-tmux` CLI:
 curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/install.sh | bash
 ```
 
+## Update
+Install `better-tmux` CLI:
+```sh
+curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/update.sh | bash
+```
+
 ## Setting up your config
 Clone this [template](https://github.com/bettervim/better-tmux-template), and install dependencies using your favorite package manager:
 
@@ -55,6 +61,11 @@ export default {
 ```
 
 Now, reload your `tmux.conf` (try running `tmux source-file ~/.tmux.conf`) and tada 🎉
+
+## Uninstall
+```sh
+curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/uninstall.sh | bash
+```
 
 ## License
 MIT
