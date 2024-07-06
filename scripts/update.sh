@@ -8,13 +8,6 @@ destination_directory="/usr/local/bin/"
 os=$(uname -s | tr '[:upper:]' '[:lower:]')
 arch=$(uname -m)
 
-# Translate architecture to target-specific suffix
-case "$arch" in
-    x86_64) arch="x64" ;;
-    aarch64) arch="arm64" ;;
-    *) echo "Unsupported architecture: $arch" && exit 1 ;;
-esac
-
 # Set the executable name based on OS and architecture
 executable_name="better-tmux-${os}-${arch}"
 download_url="https://github.com/$repository/releases/latest/download/$executable_name"
