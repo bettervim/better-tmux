@@ -177,3 +177,4 @@ dist
 *.res.js
 .turbo/
 /packages/cli/lib/
+.build/
