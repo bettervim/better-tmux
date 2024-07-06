@@ -1,5 +1,5 @@
 import { Box, BetterTmuxConfig, WindowConfig, useTheme, tmux } from 'better-tmux'
-import { Clock, SessionName } from 'better-tmux/widgets'
+import { Date, SessionName } from 'better-tmux/widgets'
 
 const Window = ({ type, number, name }: WindowConfig) => {
   let theme = useTheme()
@@ -20,7 +20,7 @@ const StatusLeft = () => (
 
 const StatusRight = () => (
   <Box>
-    <Clock format={`${tmux.globals.hour_12}:${tmux.globals.minute}`} />
+    <Date format={`${tmux.globals.abbreviated_month} ${tmux.globals.day}`} />
   </Box>
 )
 

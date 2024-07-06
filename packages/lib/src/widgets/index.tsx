@@ -54,3 +54,22 @@ export const Clock = ({ format, icon }: ClockProps) => {
     </Widget>
   )
 }
+
+type DateProps = CommonModuleProps & {
+  format?: string
+}
+
+export const Date = ({ format, icon }: DateProps) => {
+  const value = format ?? `${tmux.globals.month}-${tmux.globals.day}-${tmux.globals.year}`
+
+  return (
+    <Widget>
+      <WidgetIcon>
+        {icon ?? ""}
+      </WidgetIcon>
+      <WidgetLabel>
+        {value}
+      </WidgetLabel>
+    </Widget>
+  )
+}
