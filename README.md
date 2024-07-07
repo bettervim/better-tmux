@@ -5,7 +5,7 @@
   <p>Unlock the full power of TMUX with TypeScript and JSX ⚡</p>
 </div>
 
-<image src="./assets/preview.png" />
+<image src="./assets/preview-v1.png" />
 
 ## Introduction
 BetterTmux is essentially a framework for TMUX that leverages React and TypeScript to enable powerful customizations. It allows you to create your own custom components and configurations for the TMUX status bar. Additionally, it provides a layer of pre-built components that help you unlock the full potential of your TMUX setup.
