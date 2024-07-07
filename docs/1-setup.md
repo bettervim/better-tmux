@@ -1,4 +1,4 @@
-[← Back](./README.md) / [Next →](./basic-usage.md)
+[← Back](./README.md) / [Next →](./2-basic-usage.md)
 
 # 1. Setup
 
@@ -51,4 +51,4 @@ curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/u
 
 <hr />
 
-[← Back](./README.md) / [Next →](./basic-usage.md)
+[← Back](./README.md) / [Next →](./2-basic-usage.md)
