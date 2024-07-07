@@ -1,4 +1,5 @@
 type options = 
+  | StatusFg(string)
   | StatusBg(string)
   | StatusLeft(string)
   | StatusRight(string)
@@ -8,6 +9,7 @@ type options =
 type command = SetGlobal(options)
 
 let parseOptions = options => switch options {
+  | StatusFg(value) => `status-fg "${value}"`
   | StatusBg(value) => `status-bg "${value}"`
   | StatusLeft(value) => `status-left "${value}"`
   | StatusRight(value) => `status-right "${value}"`

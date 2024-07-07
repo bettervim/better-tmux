@@ -27,6 +27,7 @@ const StatusRight = () => (
 export default {
   theme: 'dracula',
   status: {
+    fg: '#fc3666',
     left: <StatusLeft />,
     right: <StatusRight />,
   },

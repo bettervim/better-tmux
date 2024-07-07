@@ -12,9 +12,10 @@ type windowParams = {
 type window = windowParams => TmuxJsx.element
 
 type status = {
+  fg?: string,
   bg?: string,
-  left: option<TmuxJsx.element>,
-  right: option<TmuxJsx.element>,
+  left?: TmuxJsx.element,
+  right?: TmuxJsx.element,
 }
 
 type config = {

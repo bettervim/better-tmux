@@ -13,6 +13,7 @@ export type Theme =
  | "dracula"
 
 export type Status = {
+  fg?: string,
   bg?: string,
   left?: JSX.Element,
   right?: JSX.Element,

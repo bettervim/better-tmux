@@ -12,21 +12,23 @@ let createRoot = exec => {
 module StatusRenderer = {
   let leftRoot = createRoot(body => Tmux.exec(SetGlobal(StatusLeft(body))))
   let rightRoot = createRoot(body => Tmux.exec(SetGlobal(StatusRight(body))))
+
   let render = (~theme: BetterTmux.themePalette, ~status: Config.status) => {
-    switch status.bg {
-    | None => Tmux.exec(SetGlobal(StatusBg(theme.background)))
-    | Some(bg) => Tmux.exec(SetGlobal(StatusBg(bg)))
-    }
+    let statusBg = status.bg->Option.getOr(theme.background)
+    let statusFg = status.fg->Option.getOr(theme.foreground)
 
     switch status.left {
-    | None => Tmux.exec(SetGlobal(StatusLeft("")))
     | Some(tree) => Reconcilier.render(tree, leftRoot)
+    | None => Tmux.exec(SetGlobal(StatusLeft("")))
     }
 
     switch status.right {
-    | None => Tmux.exec(SetGlobal(StatusRight("")))
     | Some(tree) => Reconcilier.render(tree, rightRoot)
+    | None => Tmux.exec(SetGlobal(StatusRight("")))
     }
+
+    Tmux.exec(SetGlobal(StatusBg(statusBg)))
+    Tmux.exec(SetGlobal(StatusFg(statusFg)))
   }
 }
 
