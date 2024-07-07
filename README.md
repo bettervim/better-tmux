@@ -7,6 +7,13 @@
 
 <image src="./assets/preview-v1.png" />
 
+## Features
+
+- ⚙️ Support for TMUX customizations trough TypeScript and React
+- 🎨 Theme management + popular themes
+- 📦 Pre-built widgets such as `<Hostname />`, `<Clock />`, `<SessionName />`, etc 
+- 💡 Ability to create your own widgets using native building blocks `<Box />` adn `<Text />` 
+
 ## Introduction
 BetterTmux is essentially a framework for TMUX that leverages React and TypeScript to enable powerful customizations. It allows you to create your own custom components and configurations for the TMUX status bar. Additionally, it provides a layer of pre-built components that help you unlock the full potential of your TMUX setup.
 
