@@ -1,4 +1,4 @@
-[← Back](./setup.md) / [Next →](./api-reference.md)
+[← Back](./1-setup.md) / [Next →](./3-api-reference.md)
 
 # 2. Basic Usage
 
@@ -38,4 +38,4 @@ These resources are used internally by presets and components, but they are avai
 Check out the [API Reference](./api-reference.md) to see more.
 
 
-[← Back](./setup.md) / [Next →](./api-reference.md)
+[← Back](./1-setup.md) / [Next →](./3-api-reference.md)
