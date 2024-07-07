@@ -1,3 +1,5 @@
+[← Back](./2-basic-usage.md)
+
 # 3. API Reference
 
 ## Configuration
@@ -173,3 +175,5 @@ const tmux: {
   }
 }
 ```
+
+[← Back](./2-basic-usage.md)
