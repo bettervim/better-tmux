@@ -79,7 +79,9 @@ export default {
   window: (window) => <Window {...window} />
 } satisfies BetterTmuxConfig
 ```
+## Getting started
 
+Getting started with BetterTmux takes less than 2 minutes. Check out our [documentation](./docs/README.md) to begin customizing your tmux environment.
 
 ## License
 MIT
