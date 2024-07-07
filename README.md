@@ -1,66 +1,46 @@
 > 💡  This project is experimental and still in progress, and there is no documentation available yet 😅, but definitely worth trying. If you encounter any issues, please open an issue or DM me on [Twitter](https://x.com/vmaarcosp). Don't hesitate to reach out 👋🏻
 
-# better-tmux ⚡
-Unlock the full power of TMUX with TypeScript and JSX.
+<div align="center">
+  <h1>BetterTmux</h1>
+  <p>Unlock the full power of TMUX with TypeScript and JSX</p>
+</div>
 
 <image src="./assets/preview.png" />
 
-## Motivation
-TMUX is incredible and boosts productivity, but configuring it is tough. You can either use a pre-made config like "oh my tmux" with many widget options or create your own and struggle with complex setups. TMUX relies on shell scripts, making UI customization a challenge. Here's a stylish TMUX configuration example:
+## Introduction
+BetterTmux is essentially a framework for TMUX that leverages React and TypeScript to enable powerful customizations. It allows you to create your own custom components and configurations for the TMUX status bar. Additionally, it provides a layer of pre-built components that help you unlock the full potential of your TMUX setup.
 
-```sh
-set -g status-left-length 50
-set -g status-left "#[fg=colour148,bg=colour235] #H #[fg=colour235,bg=colour148,nobold,noitalics,nounderscore]"
-set -g status-right-length 150
-set -g status-right "#[fg=colour235,bg=colour148,nobold,noitalics,nounderscore]#[fg=colour148,bg=colour235] %Y-%m-%d #[fg=colour148,bg=colour235,nobold,noitalics,nounderscore]#[fg=colour235,bg=colour136] %H:%M:%S #[fg=colour235,bg=colour136,nobold,noitalics,nounderscore]#[fg=colour136,bg=colour235] Session: #S "
-```
+## Why
 
-On the other hand, TypeScript (and JavaScript) plus JSX are a great way to deal with UIs, so, what if you could configure your TMUX using these two technologies? Here we go 🏃
+TMUX is incredible and boosts productivity, but configuring it can be tough. You can either use a pre-made config like "oh my tmux", which can be challenging to customize, or build your own from scratch, which can be overwhelming depending on your experience. If you try to use a plugin theme like nord or catppuccin to match your vim or terminal theme, you'll notice that it doesn't only change the colors but also affects your widgets and layout.
 
-## Installation
-Install `better-tmux` CLI:
-```sh
-curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/install.sh | bash
-```
+I've been tweaking my own tmux config for years, and I've ended up with complex configurations like this:
 
-## Update
-Install `better-tmux` CLI:
-```sh
-curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/update.sh | bash
-```
+<details>
+  <summary>
+  Click to reveal 🔎
+ </summary>
 
-## Setting up your config
-In the folder where you want to store your configuration (we recommend ~/), run the following command:
-```sh
-git clone https://github.com/bettervim/better-tmux-template.git ~/better-tmux && rm -rf better-tmux/.git
-```
-Now, install the dependencies using your favorite package manager:
+   ```sh
+    set -g status-left-length 50
+    set -g status-left "#(hostname) #[bg=$theme_primary,fg=$theme_background] 🚀 #[bg=$theme_background,fg=$theme_foreground] Test "
+    
+    set -g status-right-length 50
+    set -g status-right "#[bg=$theme_primary,fg=$theme_background] %Y-%m-%d #[bg=$theme_background,fg=$theme_foreground] %H:%M:%S "
+    
+    set -g window-status-format "#[bg=$theme_background,fg=$theme_foreground] #I: #W "
+    set -g window-status-current-format "#[bg=$theme_primary,fg=$theme_background] #I: #W "
+    
+    set -g status-style "bg=$theme_background,fg=$theme_foreground"
+``` 
+ 
+</details>
 
-```sh
-pnpm install
-# or bun install
-# or yarn install
-# or npm install
-```
 
-## Testing
 
-To test changes in your configuration, you'll need to run the better-tmux CLI, specifying your configuration file. For example:
-```sh
-better-tmux ~/better-tmux/index.tsx
-```
-
-We recommend you to modify your `tmux.conf` to execute the CLI on every reload and point to the `index.tsx` of your config folder:
-```sh
-# ~/tmux.conf
-run-shell 'better-tmux --file ~/better-tmux/index.tsx'
-```
-
-## Basic usage
-Now, navigate to your `index.tsx` file, and modify it to be like this:
-
+On the other hand, TypeScript (and JavaScript) plus JSX are great ways to handle UIs. So, what if you could configure your TMUX using these technologies? 
+Here is a very similar example of the code above but using BetterTmux:
 ```typescript
-// /path/to/your-config/index.tsx
 import { BetterTmuxConfig, Box, WindowConfig, useTheme } from 'better-tmux'
 import { Clock, Hostname } from 'better-tmux/widgets'
 
@@ -100,12 +80,6 @@ export default {
 } satisfies BetterTmuxConfig
 ```
 
-Now, reload your `tmux.conf` (try running `tmux source-file ~/.tmux.conf`) and tada 🎉
-
-## Uninstall
-```sh
-curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/uninstall.sh | bash
-```
 
 ## License
 MIT
