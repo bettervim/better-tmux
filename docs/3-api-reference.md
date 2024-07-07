@@ -1,5 +1,44 @@
 # 3. API Reference
 
+## Configuration
+The exported object has the following type signature and options:
+```typescript
+export type WindowConfig = {
+  number: number,
+  name: string,
+  type: "active" | "normal" 
+}
+
+export type Theme = 
+ | "catppuccin-mocha"
+ | "catppuccin-latte"
+ | "catppuccin-macchiato"
+ | "catppuccin-frappe"
+ | "nord"
+ | "dracula"
+
+export type Status = {
+  fg?: string,
+  bg?: string,
+  left?: JSX.Element,
+  right?: JSX.Element,
+}
+
+export type BetterTmuxConfig = {
+  theme?: Theme, 
+  status?: Status,
+  window?: (config: WindowConfig) => JSX.Element
+}
+```
+
+## Themes
+The supported themes are:
+  - Catppuccin
+  - Nord
+  - Dracula
+
+> 💡 Do you need a theme? Feel free to open a PR; it's pretty simple. Check out this [file](https://github.com/bettervim/better-tmux/blob/main/packages/lib/src/hooks/use-theme.ts).
+
 ## Components
 ### `<Box />` and `<Text />`
 
