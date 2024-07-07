@@ -9,7 +9,11 @@ os=$(uname -s | tr '[:upper:]' '[:lower:]')
 arch=$(uname -m)
 
 # Set the executable name based on OS and architecture
-executable_name="better-tmux-${os}-${arch}"
+if [ "$arch" = "x86_64" ]; then
+    executable_name="better-tmux-linux-x64"
+else
+    executable_name="better-tmux-${os}-${arch}"
+fi
 download_url="https://github.com/$repository/releases/latest/download/$executable_name"
 
 # Download the executable from the latest release

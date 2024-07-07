@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Set the GitHub repository and destination directory
@@ -9,7 +10,11 @@ os=$(uname -s | tr '[:upper:]' '[:lower:]')
 arch=$(uname -m)
 
 # Set the executable name based on OS and architecture
-executable_name="better-tmux-${os}-${arch}"
+if [ "$arch" = "x86_64" ]; then
+    executable_name="better-tmux-linux-x64"
+else
+    executable_name="better-tmux-${os}-${arch}"
+fi
 download_url="https://github.com/$repository/releases/latest/download/$executable_name"
 
 # Download the executable from the latest release
@@ -23,7 +28,7 @@ fi
 
 # Check if the executable already exists and remove the old version if it does
 if [ -f "$destination_directory/better-tmux" ]; then
-  sudo rm "$destination_directory/better-tmux"
+    sudo rm "$destination_directory/better-tmux"
 fi
 
 # Rename the downloaded file to 'better-tmux'
@@ -36,3 +41,4 @@ sudo mv "better-tmux" "$destination_directory"
 sudo chmod +x "$destination_directory/better-tmux"
 
 echo "Successfully updated better-tmux CLI."
+
