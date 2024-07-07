@@ -24,12 +24,4 @@ const StatusRight = () => (
   </Box>
 )
 
-export default {
-  theme: 'dracula',
-  status: {
-    fg: '#fc3666',
-    left: <StatusLeft />,
-    right: <StatusRight />,
-  },
-  window: (window) => <Window {...window} />
-} satisfies BetterTmuxConfig
+export default undefined
