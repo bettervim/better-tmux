@@ -2,7 +2,7 @@
 
 <div align="center">
   <h1>BetterTmux</h1>
-  <p>Unlock the full power of TMUX with TypeScript and JSX</p>
+  <p>Unlock the full power of TMUX with TypeScript and JSX ⚡</p>
 </div>
 
 <image src="./assets/preview.png" />
