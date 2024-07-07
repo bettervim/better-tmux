@@ -1,54 +1,41 @@
-[← Back](./README.md) / [Next →](./basic-usage.md)
+[← Back](./setup.md) / [Next →](./api-reference.md)
 
-# 1. Setup
+# 2. Basic Usage
 
-## Installation
+As we did previously, you used a template to set up your config. This template is essentially a JavaScript/TypeScript project with React pre-configured and `better-tmux` installed.
 
-Install `better-tmux` CLI:
-```sh
-curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/install.sh | bash
-```
+From this template, the only thing you need to focus on is the `index.tsx`; the rest works like any JavaScript project.
 
-The CLI contain only two commands / arguments:
+## Usage of `index.tsx`
 
-- `--version`: Display the version installed
-- `--file`: Specifies the file you'll use to customize your tmux
+The main configuration file for BetterTmux is `index.tsx`. This file is where you define your tmux setup using TypeScript and JSX. You'll notice that this file exports an object with your customizations. These configurations are read by the BetterTmux CLI and do the magic for you. To better understand the flow, it's basically like this:
+1. Write your customizations using React.
+2. Run `better-tmux --file /path/to/your-config/index.tsx`.
+3. And tada 🎉
 
-> 💡 Don't worry about this for now, we'll cover the basic usage later.
+Notice that the `better-tmux` CLI reads your object and transforms everything into tmux native configs.
 
-## Setting up your config
-In the folder where you want to store your configuration (we recommend ~/), run the following command:
-```sh
-git clone https://github.com/bettervim/better-tmux-template.git ~/better-tmux && rm -rf better-tmux/.git
-```
-Now, install the dependencies using your favorite package manager:
+## Integrating with your `tmux.conf`
 
-```sh
-pnpm install
-# or bun install
-# or yarn install
-# or npm install
-```
+A common and productive approach is to keep your configs together in dotfiles. BetterTmux fits perfectly into this use case if you integrate it with your `tmux.conf` file. Since `tmux.conf` is essentially a file read by tmux, all you need to do is add a line to ensure that every reload of your tmux also executes the `better-tmux` CLI:
 
-## Testing
-
-To test changes in your configuration, you'll need to run the better-tmux CLI, specifying your configuration file. For example:
-```sh
-better-tmux ~/better-tmux/index.tsx
-```
-
-We recommend you to modify your `tmux.conf` to execute the CLI on every reload and point to the `index.tsx` of your config folder:
 ```sh
 # ~/tmux.conf
-run-shell 'better-tmux --file ~/better-tmux/index.tsx'
+run-shell 'better-tmux --file /path/to/your-config/index.tsx'
 ```
 
-## Update
-To update `better-tmux` CLI, run the following command
-```sh
-curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/update.sh | bash
-```
+## BetterTmux Packages (`better-tmux`)
 
-<hr />
+Along with the setup, you'll install the `better-tmux` package. This package exports some useful resources for your config:
 
-[← Back](./README.md) / [Next →](./basic-usage.md)
+- Building blocks: `<Box />` and `<Text />`
+- Pre-built widgets: `<Hostname />`, `<Clock />`, `<SessionName />`, etc.
+- TMUX global variables through `tmux`, such as `tmux.globals.sessionName`
+- Hooks: `useTheme()`
+
+These resources are used internally by presets and components, but they are available for you to build your own customizations.
+
+Check out the [API Reference](./api-reference.md) to see more.
+
+
+[← Back](./setup.md) / [Next →](./api-reference.md)
