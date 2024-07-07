@@ -1,4 +1,4 @@
-> 💡  This project is experimental and still in progress, and there is no documentation available yet 😅, but definitely worth trying. If you encounter any issues, please open an issue or DM me on [Twitter](https://x.com/vmaarcosp). Don't hesitate to reach out 👋🏻
+> 💡  This project is experimental and still in progress, but definitely worth trying. If you encounter any issues, please open an issue or DM me on [Twitter](https://x.com/vmaarcosp). Don't hesitate to reach out 👋🏻
 
 <div align="center">
   <h1>BetterTmux</h1>
