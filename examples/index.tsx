@@ -24,4 +24,10 @@ const StatusRight = () => (
   </Box>
 )
 
-export default undefined
+export default {
+  status: {
+    left: <StatusLeft />,
+    right: <StatusRight />
+  },
+  window: (props) => <Window {...props} />
+} satisfies BetterTmuxConfig
