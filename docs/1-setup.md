@@ -2,7 +2,7 @@
 
 # 1. Setup
 
-## Installation
+## Install
 
 Install `better-tmux` CLI:
 ```sh
@@ -44,9 +44,15 @@ run-shell 'better-tmux --file ~/better-tmux/index.tsx'
 ```
 
 ## Update
-To update `better-tmux` CLI, run the following command
+To update `better-tmux` CLI, run the following command:
 ```sh
 curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/update.sh | bash
+```
+
+## Uninstall
+To uninstall `better-tmux` CLI, run the following command:
+```sh
+curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/uninstall.sh | bash
 ```
 
 <hr />
