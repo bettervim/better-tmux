@@ -8,6 +8,27 @@ destination_directory="/usr/local/bin/"
 os=$(uname -s | tr '[:upper:]' '[:lower:]')
 arch=$(uname -m)
 
+
+# -------
+# This event is sent anonymously and contains no sensitive information. 
+# It is used solely for analytics and insights purposes.
+# -------
+api_key="phc_tep6nTCW6RCBJsqkskTDUmF0bTpgFnRtgrRTdhV4gsn"
+event_name="install"
+id=$(uuidgen)
+curl -X POST https://us.i.posthog.com/capture/ \
+    -H "Content-Type: application/json" \
+    -d '{
+        "api_key": "'$api_key'",
+        "event": "'$event_name'",
+        "properties": {
+            "distinct_id": "'$id'",
+            "arch": "'$arch'",
+            "os": "'$os'"
+        }
+    }'
+clear
+
 # Set the executable name based on OS and architecture
 if [ "$arch" = "x86_64" ]; then
     executable_name="better-tmux-linux-x64"
@@ -33,5 +54,7 @@ sudo mv "better-tmux" "$destination_directory"
 
 # Set appropriate permissions (optional)
 sudo chmod +x "$destination_directory/better-tmux"
+
+#!/bin/bash
 
 echo "Successfully installed better-tmux CLI."
