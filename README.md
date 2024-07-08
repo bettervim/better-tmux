@@ -19,7 +19,7 @@ BetterTmux is essentially a framework for TMUX that leverages React and TypeScri
 
 ## Why
 
-TMUX is incredible and boosts productivity, but configuring it can be tough. You can either use a pre-made config like "oh my tmux", which can be challenging to customize, or build your own from scratch, which can be overwhelming depending on your experience. If you try to use a plugin theme like nord or catppuccin to match your vim or terminal theme, you'll notice that it doesn't only change the colors but also affects your widgets and layout.
+TMUX is incredible and boosts productivity, but configuring it can be tough. You can either use a pre-made config like "oh my tmux", which can be challenging to customize, or build your own from scratch, which can be overwhelming depending on your experience. If you try to use a plugin theme like [Nord](https://github.com/nordtheme/tmux) or [Catppuccin](https://github.com/catppuccin/tmux) to match your vim or terminal theme, you'll notice that it doesn't only change the colors but also affects your widgets and layout.
 
 I've been tweaking my own tmux config for years, and I've ended up with complex configurations like this:
 
