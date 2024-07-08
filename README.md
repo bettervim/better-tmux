@@ -90,5 +90,16 @@ export default {
 
 Getting started with BetterTmux takes less than 2 minutes. Check out our [documentation](./docs/README.md) to begin customizing your tmux environment.
 
+## FAQ
+
+**"Is this project a replacement for my `tmux.conf`?"**
+
+- **Short answer**: Not yet.
+- **Long answer**: This is our plans for this project. Currently, we don't support all possible tmux configurations and options, but we plan to support the most common ones.
+
+**"What happens if I need something that is not supported by BetterTmux?"**
+- We recommend using your `tmux.conf` alongside BetterTmux. This allows you to use any native tmux command as an escape hatch.
+
+
 ## License
 MIT
