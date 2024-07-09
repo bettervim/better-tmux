@@ -16,12 +16,31 @@ type status = {
   bg?: string,
   left?: TmuxJsx.element,
   right?: TmuxJsx.element,
+  position?: string,
+}
+
+type options = {
+  terminalOverrides?: string,
+  escapeTime?: int,
+  paneBaseIndex?: int,
+  statusKeys?: string,
+  setTitles?: string,
+  setTitlesString?: string,
+  modeKeys?: string,
+  prefix?: string,
+  baseIndex?: int,
+  historyLimit?: int,
+  defaultTerminal?: string,
+  mouse?: string,
+  renumberWindows?: string,
+  aggressiveResize?: string,
 }
 
 type config = {
   theme?: string,
   status?: status,
   window?: window,
+  options?: options,
 }
 
 type mod = {default: config}

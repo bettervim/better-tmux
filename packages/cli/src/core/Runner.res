@@ -20,8 +20,13 @@ let run = async () => {
   | Some(file) => {
       let path = Path.resolve([file])
       let {default: config} = await Config.import_(path)
-
+      
       Renderer.render(config)
+
+      switch config.options {
+        | None => ()
+        | Some(options) => GlobalOptions.execute(options)
+      }
     }
   }
 
