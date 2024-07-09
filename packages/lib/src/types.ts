@@ -17,6 +17,27 @@ export type Status = {
   bg?: string,
   left?: JSX.Element,
   right?: JSX.Element,
+  position?: "top" | "bottom"
+}
+
+type Bind = `${string}-${string}`
+type Toggle = "on" | "off"
+
+export type Options = {
+  terminalOverrides?: string,
+  escapeTime?: number,
+  paneBaseIndex?: number,
+  statusKeys?: "vi" | "emacs" ,
+  modeKeys?: "vi" | "emacs",
+  setTitles?: Toggle,
+  setTitlesString?: string,
+  prefix?: Bind,
+  baseIndex?: number,
+  historyLimit?: number,
+  defaultTerminal?: string,
+  mouse?: string,
+  renumberWindows?: Toggle,
+  aggressiveResize?: boolean,
 }
 
 export type BetterTmuxConfig = {
