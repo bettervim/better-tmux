@@ -1,6 +1,6 @@
 {
   "name": "better-tmux",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
