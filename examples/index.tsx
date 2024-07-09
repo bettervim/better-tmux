@@ -25,7 +25,7 @@ const StatusRight = () => (
 )
 
 export default {
-  theme: 'dracula',
+  theme: 'catppuccin-latte',
   options:{
     setTitlesString: " ",
   },
