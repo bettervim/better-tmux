@@ -27,6 +27,12 @@ module StatusRenderer = {
     | None => Tmux.exec(SetGlobal(StatusRight("")))
     }
 
+    switch status.position {
+    | Some(position) => Tmux.exec(SetGlobal(StatusPosition(position)))
+    | None => ()
+    }
+
+
     Tmux.exec(SetGlobal(StatusBg(statusBg)))
     Tmux.exec(SetGlobal(StatusFg(statusFg)))
   }
