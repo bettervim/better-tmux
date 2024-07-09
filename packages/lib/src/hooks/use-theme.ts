@@ -50,12 +50,12 @@ const catppuccinLatte = {
 
 
 export const themes = {
-  nord,
-  dracula,
-  catppuccinLatte,
-  catppuccinMocha,
-  catppuccinMacchiato,
-  catppuccinFrappe
+  "nord": nord,
+  "dracula": dracula,
+  "catppuccin-latte": catppuccinLatte,
+  "catppuccin-mocha": catppuccinMocha,
+  "catppuccin-macchiato": catppuccinMacchiato,
+  "catppuccin-frappe": catppuccinFrappe
 }
 
 export function useTheme(): ThemePalette {

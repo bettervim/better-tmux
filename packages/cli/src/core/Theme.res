@@ -4,7 +4,7 @@ let getCurrent = (theme: option<string>) => {
   let themePalette =
     BetterTmux.themes
     ->Dict.get(theme)
-    ->Option.getOr(BetterTmux.themes->Dict.getUnsafe("catppuccinMocha"))
+    ->Option.getOr(BetterTmux.themes->Dict.getUnsafe("catppuccin-mocha"))
 
   (themePalette, theme)
 }
