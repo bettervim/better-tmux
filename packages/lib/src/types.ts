@@ -41,6 +41,7 @@ export type Options = {
 }
 
 export type BetterTmuxConfig = {
+  options?: Options,
   theme?: Theme, 
   status?: Status,
   window?: (config: WindowConfig) => JSX.Element
