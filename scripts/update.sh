@@ -1,9 +1,13 @@
-
 #!/bin/bash
 
 # Set the GitHub repository and destination directory
 repository="bettervim/better-tmux"
 destination_directory="/usr/local/bin/"
+tmp_dir="/tmp/better-tmux-$(uuidgen)"
+
+# Create a temporary directory
+mkdir -p "$tmp_dir"
+cd "$tmp_dir" || exit 1
 
 # Determine the OS and architecture
 os=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -38,7 +42,7 @@ else
 fi
 download_url="https://github.com/$repository/releases/latest/download/$executable_name"
 
-# Download the executable from the latest release
+# Download the executable from the latest release into the temporary directory
 wget -O "$executable_name" "$download_url"
 
 # Check if the download was successful
@@ -61,5 +65,7 @@ sudo mv "better-tmux" "$destination_directory"
 # Set appropriate permissions (optional)
 sudo chmod +x "$destination_directory/better-tmux"
 
-echo "Successfully updated better-tmux CLI."
+# Clean up the temporary directory
+rm -rf "$tmp_dir"
 
+echo "Successfully updated better-tmux CLI."
