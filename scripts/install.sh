@@ -3,11 +3,15 @@
 # Set the GitHub repository and destination directory
 repository="bettervim/better-tmux"
 destination_directory="/usr/local/bin/"
+tmp_dir="/tmp/better-tmux-$(uuidgen)"
+
+# Create a temporary directory
+mkdir -p "$tmp_dir"
+cd "$tmp_dir" || exit 1
 
 # Determine the OS and architecture
 os=$(uname -s | tr '[:upper:]' '[:lower:]')
 arch=$(uname -m)
-
 
 # -------
 # This event is sent anonymously and contains no sensitive information. 
@@ -55,6 +59,7 @@ sudo mv "better-tmux" "$destination_directory"
 # Set appropriate permissions (optional)
 sudo chmod +x "$destination_directory/better-tmux"
 
-#!/bin/bash
+# Clean up the temporary directory
+rm -rf "$tmp_dir"
 
 echo "Successfully installed better-tmux CLI."
