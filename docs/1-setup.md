@@ -2,6 +2,13 @@
 
 # 1. Setup
 
+- [Install](1-setup.md#install)
+- [Setting up your config](1-setup.md#setting-up-your-config)
+- [Testing](1-setup.md#testing)
+- [Update](1-setup.md#update)
+- [Uninstall](1-setup.md#uninstall)
+
+
 ## Install
 
 Install `better-tmux` CLI:
