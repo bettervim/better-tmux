@@ -1,6 +1,9 @@
 [← Back](./1-setup.md) / [Next →](./3-api-reference.md)
 
 # 2. Basic Usage
+- [Usage of index.tsx](2-basic-usage.md#usage-of-indextsx)
+- [Integrating with tmux.conf](2-basic-usage.md#integrating-with-your-tmuxconf)
+- [BetterTmux packages](2-basic-usage.md#bettertmux-packages-better-tmux)
 
 As we did previously, you used a template to set up your config. This template is essentially a JavaScript/TypeScript project with React pre-configured and `better-tmux` installed.
 
