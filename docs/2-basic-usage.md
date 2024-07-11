@@ -9,6 +9,81 @@ As we did previously, you used a template to set up your config. This template i
 
 From this template, the only thing you need to focus on is the `index.tsx`; the rest works like any JavaScript project.
 
+## Understading the customization
+After cloning and setting up your config using our template, you'll end up with something like that in your config:
+```typescript
+import { BetterTmuxConfig, Box, WindowConfig, useTheme } from 'better-tmux'
+import { Clock, Hostname } from 'better-tmux/widgets'
+
+const Window = ({ type, number, name }: WindowConfig) => {
+  const theme = useTheme()
+  return (
+    <Box 
+      padding={1} 
+      bg={type === 'active' ? theme.primary : theme.background}
+      fg={type === 'active' ? theme.background : theme.foreground}
+    >
+      {number}: {name}
+    </Box>
+  )
+}
+
+const CustomStatusLeft = () => {
+  const theme = useTheme()
+
+  return (
+    <Box>
+      <Hostname />
+      <Box bg={theme.primary} padding={1}>🚀</Box>
+      <Box bg={theme.background} fg={theme.foreground} padding={1}>Test</Box>
+    </Box>
+
+  )
+}
+
+export default {
+  theme: 'nord',
+  options: {
+    prefix: 'C-a'
+  },
+  status: {
+    left: <CustomStatusLeft />,
+    right: <Clock />,
+    position: 'top'
+  },
+  window: (window) => <Window {...window} />
+} satisfies BetterTmuxConfig
+```
+
+Let's break this customizastion into multiple parts to understand what we're doing in here 🏃
+
+### Customizing window
+As you might know, TMUX allows you to create multiple windows per session. One of the most common customizations is modifying the window appearance, such as setting a layout for the window (e.g., `(number): (name)`) or changing the colors for each state (active, normal, zoomed, etc.).
+
+With BetterTmux, all you need to customize your windows is to create a component that receives props of type `WindowConfig` and returns the layout and UI you want. After that, you just need to export this component as a field of the object config `window`. Here is an example:
+
+```typescript
+const Window = ({ type, number, name }: WindowConfig) => {
+  const theme = useTheme()
+  return (
+    <Box 
+      padding={1} 
+      bg={type === 'active' ? theme.primary : theme.background}
+      fg={type === 'active' ? theme.background : theme.foreground}
+    >
+      {number}: {name}
+    </Box>
+  )
+}
+
+export default {
+  // ... other customizations
+  window: (window) => <Window {...window} />
+}
+```
+
+> 💡 You can use the `type` prop to display different colors or layout based on the type of window, for example: `active` windows are blue, and `normal` are red.
+
 ## Usage of `index.tsx`
 
 The main configuration file for BetterTmux is `index.tsx`. This file is where you define your tmux setup using TypeScript and JSX. You'll notice that this file exports an object with your customizations. These configurations are read by the BetterTmux CLI and do the magic for you. To better understand the flow, it's basically like this:
