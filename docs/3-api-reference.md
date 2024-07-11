@@ -1,6 +1,13 @@
 [← Back](./2-basic-usage.md)
 
 # 3. API Reference
+- [Configuration](3-api-reference.md#configuration)
+- [Themes](3-api-reference.md#themes)
+- [Components](3-api-reference.md#components)
+- [Example](3-api-reference.md#example)
+- [Hooks](3-api-reference.md#hooks)
+- [Widgets](3-api-reference.md#widgets)
+- [Utilities](3-api-reference.md#utilities)
 
 ## Configuration
 The exported object has the following type signature and options:
