@@ -79,9 +79,14 @@ const CustomStatusLeft = () => {
 
 export default {
   theme: 'nord',
+  options: {
+    prefix: 'C-a',
+    setTitlesString: "BetterTmux",
+  },
   status: {
     left: <CustomStatusLeft />,
-    right: <Clock />
+    right: <Clock />,
+    position: 'top'
   },
   window: (window) => <Window {...window} />
 } satisfies BetterTmuxConfig
