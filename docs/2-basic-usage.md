@@ -57,7 +57,7 @@ export default {
 
 Let's break this customizastion into multiple parts to understand what we're doing in here 🏃
 
-### Customizing window
+### Customizing windows
 As you might know, TMUX allows you to create multiple windows per session. One of the most common customizations is modifying the window appearance, such as setting a layout for the window (e.g., `(number): (name)`) or changing the colors for each state (active, normal, zoomed, etc.).
 
 With BetterTmux, all you need to customize your windows is to create a component that receives props of type `WindowConfig` and returns the layout and UI you want. After that, you just need to export this component as a field of the object config `window`. Here is an example:
@@ -83,6 +83,35 @@ export default {
 ```
 
 > 💡 You can use the `type` prop to display different colors or layout based on the type of window, for example: `active` windows are blue, and `normal` are red.
+
+### Customizing status bar
+TMUX has a status bar with two parts, a status-left and a status-right, with additional configurations related to the status bar itself. 
+
+In the above example, we've made some customizations to it, modifying the layout of status-left, status-right, and status-position. 
+
+To customize both status-left and status-right, you can create your own component to display pre-built widgets or create your own from scratch using BetterTmux building blocks. After that, you just need to attach them to the config via the status object:
+
+```typescript
+const CustomStatusLeft = () => {
+  const theme = useTheme()
+
+  return (
+    <Box>
+      <Hostname />
+      <Box bg={theme.primary} padding={1}>🚀</Box>
+      <Box bg={theme.background} fg={theme.foreground} padding={1}>Test</Box>
+    </Box>
+
+  )
+}
+export default {
+  status: {
+    left: <CustomStatusLeft />,
+    position: 'top'
+  },
+}
+```
+Additionally, you can modify other aspects of the status, like `bg` (background color) or even its position. To see more, check out the [API reference of the object config](https://github.com/bettervim/better-tmux/blob/main/docs/3-api-reference.md#configuration).
 
 ## Usage of `index.tsx`
 
