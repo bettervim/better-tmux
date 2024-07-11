@@ -91,10 +91,29 @@ export default {
   window: (window) => <Window {...window} />
 } satisfies BetterTmuxConfig
 ```
-## Getting started
 
-Getting started with BetterTmux takes less than 2 minutes. Check out our [documentation](./docs/README.md) to begin customizing your tmux environment.
+## Documentation 📘
 
+- [Setup](1-setup.md)
+  - [Install](1-setup.md#install)
+  - [Setting up your config](1-setup.md#setting-up-your-config)
+  - [Testing](1-setup.md#testing)
+  - [Update](1-setup.md#update)
+  - [Uninstall](1-setup.md#uninstall)
+- [Basic Usage](2-basic-usage.md)
+  - [Understanding customizations](2-basic-usage.md#understanding-customizations)
+  - [Usage of index.tsx](2-basic-usage.md#usage-of-indextsx)
+  - [Integrating with tmux.conf](2-basic-usage.md#integrating-with-your-tmuxconf)
+  - [BetterTmux packages](2-basic-usage.md#bettertmux-packages-better-tmux)
+- [API Reference](3-api-reference.md)
+  - [Configuration](3-api-reference.md#configuration)
+  - [Themes](3-api-reference.md#themes)
+  - [Components](3-api-reference.md#components)
+  - [Example](3-api-reference.md#example)
+  - [Hooks](3-api-reference.md#hooks)
+  - [Widgets](3-api-reference.md#widgets)
+  - [Utilities](3-api-reference.md#utilities)
+    
 ## FAQ
 
 **"Is this project a replacement for my `tmux.conf`?"**
