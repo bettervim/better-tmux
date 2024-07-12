@@ -11,6 +11,11 @@ export default {
     {
       key: 'x',
       command: 'kill-window'
+    },
+    {
+      key: 'h',
+      command: 'select-pane',
+      options: ['-L']
     }
   ]
 }
