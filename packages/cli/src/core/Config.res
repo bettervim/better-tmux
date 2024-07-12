@@ -36,12 +36,20 @@ type options = {
   aggressiveResize?: string,
 }
 
+type bind = {
+  key: string,
+  command: string,
+  options?: array<string>
+}
+
 type config = {
+  bindings?: array<bind>,
   theme?: string,
   status?: status,
   window?: window,
   options?: options,
 }
+
 
 type mod = {default: config}
 

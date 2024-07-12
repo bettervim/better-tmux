@@ -26,8 +26,15 @@ const StatusRight = () => (
 
 export default {
   theme: 'catppuccin-latte',
+  bindings: [
+    {
+      key: 'x',
+      command: 'kill-window'
+    }
+  ],
   options:{
     setTitlesString: " ",
+    prefix: 'C-c'
   },
   status: {
     left: <StatusLeft />,
