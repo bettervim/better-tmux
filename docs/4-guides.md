@@ -1,6 +1,7 @@
 [← Back](./3-api-reference.md) 
 
 # 4. Guides
+- [Creating custom bindings](4-guides.md#creating-custom-bindings)
 
 ## Creating custom bindings
 Example:
