@@ -1,4 +1,4 @@
-type options = 
+type options =
   | StatusFg(string)
   | StatusBg(string)
   | StatusLeft(string)
@@ -9,8 +9,8 @@ type options =
   | TerminalOverrides(string)
   | EscapeTime(int)
   | PaneBaseIndex(int)
-  | StatusKeys(string) 
-  | ModeKeys(string) 
+  | StatusKeys(string)
+  | ModeKeys(string)
   | SetTitles(string)
   | SetTitlesString(string)
   | Prefix(string)
@@ -21,9 +21,12 @@ type options =
   | RenumberWindows(string)
   | AggressiveResize(string)
 
-type command = SetGlobal(options)
+type command =
+  | SetGlobal(options)
+  | Bind(string, string, array<string>)
 
-let parseOptions = options => switch options {
+let parseOptions = options =>
+  switch options {
   | StatusFg(value) => `status-fg "${value}"`
   | StatusBg(value) => `status-bg "${value}"`
   | StatusLeft(value) => `status-left "${value}"`
@@ -45,10 +48,12 @@ let parseOptions = options => switch options {
   | Mouse(value) => `mouse "${value}"`
   | RenumberWindows(value) => `renumber-windows ${value}`
   | AggressiveResize(value) => `aggressive-resize ${value}`
-}
+  }
 
-let parse = command => switch command {
+let parse = command =>
+  switch command {
   | SetGlobal(options) => `tmux set -g ${options->parseOptions}`
-}
+  | Bind(key, command, options) => `tmux bind ${key} ${command} ${options->Array.join(" ")}`
+  }
 
-let exec = (command) => command->parse->ChildProcess.execSync->ignore
+let exec = command => command->parse->ChildProcess.execSync->ignore

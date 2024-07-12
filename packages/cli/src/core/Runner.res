@@ -27,6 +27,11 @@ let run = async () => {
         | None => ()
         | Some(options) => GlobalOptions.execute(options)
       }
+
+      switch config.bindings {
+        | None => ()
+        | Some(bindings) => Bindings.execute(bindings)
+      }
     }
   }
 
