@@ -23,6 +23,9 @@ Below you will find links to various sections of the documentation.
   - [Hooks](3-api-reference.md#hooks)
   - [Widgets](3-api-reference.md#widgets)
   - [Utilities](3-api-reference.md#utilities)
+- [Guides](4-guides.md)
+  - [Creating custom bindings](4-guides.md#creating-custom-bindings)
+
 
 ## Overview 🔎
 
