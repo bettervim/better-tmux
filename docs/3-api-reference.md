@@ -1,4 +1,4 @@
-[← Back](./2-basic-usage.md)
+[← Back](./2-basic-usage.md) / [Next →](./4-guides.md)
 
 # 3. API Reference
 - [Configuration](3-api-reference.md#configuration)
@@ -15,16 +15,16 @@ The exported object has the following type signature and options:
 export type WindowConfig = {
   number: number,
   name: string,
-  type: "active" | "normal" 
+  type: "active" | "normal"
 }
 
-export type Theme = 
- | "catppuccin-mocha"
- | "catppuccin-latte"
- | "catppuccin-macchiato"
- | "catppuccin-frappe"
- | "nord"
- | "dracula"
+export type Theme =
+  | "catppuccin-mocha"
+  | "catppuccin-latte"
+  | "catppuccin-macchiato"
+  | "catppuccin-frappe"
+  | "nord"
+  | "dracula"
 
 export type Status = {
   fg?: string,
@@ -34,18 +34,18 @@ export type Status = {
   position?: "top" | "bottom"
 }
 
-type Bind = `${string}-${string}`
+
 type Toggle = "on" | "off"
 
 export type Options = {
   terminalOverrides?: string,
   escapeTime?: number,
   paneBaseIndex?: number,
-  statusKeys?: "vi" | "emacs" ,
+  statusKeys?: "vi" | "emacs",
   modeKeys?: "vi" | "emacs",
   setTitles?: Toggle,
   setTitlesString?: string,
-  prefix?: Bind,
+  prefix?: string,
   baseIndex?: number,
   historyLimit?: number,
   defaultTerminal?: string,
@@ -54,9 +54,38 @@ export type Options = {
   aggressiveResize?: boolean,
 }
 
+type TmuxCommand =
+  | 'select-pane'
+  | 'new-window'
+  | 'new-window'
+  | 'split-window'
+  | 'select-pane'
+  | 'select-window'
+  | 'kill-pane'
+  | 'kill-window'
+  | 'resize-pane'
+  | 'swap-pane'
+  | 'rename-window'
+  | 'list-panes'
+  | 'list-windows'
+  | 'list-sessions'
+  | 'attach-session'
+  | 'detach-client'
+  | 'show-messages'
+  | 'display-message'
+  | 'copy-mode'
+  | 'paste-buffer'
+
+export type Bind = {
+  key: string,
+  command: TmuxCommand,
+  options?: string[]
+}
+
 export type BetterTmuxConfig = {
+  bindings?: Bind[],
   options?: Options,
-  theme?: Theme, 
+  theme?: Theme,
   status?: Status,
   window?: (config: WindowConfig) => JSX.Element
 }
@@ -205,4 +234,4 @@ const tmux: {
 }
 ```
 
-[← Back](./2-basic-usage.md)
+[← Back](./2-basic-usage.md) / [Next →](./4-guides.md)
