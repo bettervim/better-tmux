@@ -15,6 +15,10 @@ export type Theme =
   | "onelight"
   | "onedark-dark"
   | "onedark-vivid"
+  | "tokyonight"
+  | "tokyonight-moon"
+  | "tokyonight-day"
+  | "tokyonight-storm"
 
 export type Status = {
   fg?: string,
