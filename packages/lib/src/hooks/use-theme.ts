@@ -1,10 +1,11 @@
+import { Theme } from "../types.js"
+
 type ThemePalette = {
   background: string,
   foreground: string,
   primary: string,
   secondary: string,
 }
-
 
 const nord = {
   foreground: "#D8DEE9",
@@ -20,7 +21,7 @@ const dracula = {
   secondary: "#50fa7b",
 }
 
-const catppuccinMocha = {
+export const catppuccinMocha = {
   foreground: "#cdd6f4",
   background: "#282a36",
   primary: "#b1baf7",
@@ -48,25 +49,49 @@ const catppuccinLatte = {
   secondary: "#50fa7b",
 }
 
-
-export const themes = {
-  "nord": nord,
-  "dracula": dracula,
-  "catppuccin-latte": catppuccinLatte,
-  "catppuccin-mocha": catppuccinMocha,
-  "catppuccin-macchiato": catppuccinMacchiato,
-  "catppuccin-frappe": catppuccinFrappe
+const onedark = {
+  foreground: "#abb2bf",
+  background: "#282c34",
+  primary: "#98c379",
+  secondary: "#d19a66",
 }
 
-export function useTheme(): ThemePalette {
-  const theme = process.env.BETTER_TMUX_THEME
+const onedarkDark = {
+  foreground: "#abb2bf",
+  background: "#000000",
+  primary: "#89ca78",
+  secondary: "#d19a66",
+}
 
-  switch (theme) {
+const onelight = {
+  foreground: "#6a6a6a",
+  background: "#fafafa",
+  primary: "#1da912",
+  secondary: "#ee9025",
+}
+
+const onedarkVivid = {
+  foreground: "#abb2bf",
+  background: "#282c34",
+  primary: "#89ca78",
+  secondary: "#d19a66",
+}
+
+export function getTheme(theme?: Theme): ThemePalette {
+  const selectedTheme = theme || process.env.BETTER_TMUX_THEME || 'catppuccin-mocha'
+
+  switch (selectedTheme) {
     case 'catppuccin-mocha': return catppuccinMocha
     case 'catppuccin-macchiato': return catppuccinMacchiato
     case 'catppuccin-latte': return catppuccinLatte
     case 'catppuccin-frappe': return catppuccinFrappe
     case 'nord': return nord
     case 'dracula': return dracula
+    case 'onedark': return onedark
+    case 'onelight': return onelight
+    case 'onedark-vivid': return onedarkVivid
+    case 'onedark-dark': return onedarkDark
   }
 }
+
+export const useTheme = getTheme
