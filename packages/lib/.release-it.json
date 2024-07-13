@@ -14,8 +14,8 @@
     "assets": [".build/*"]
   },
   "git": {
-    "commitMessage": "[skip-ci] v${version}",
-    "tagAnnotation": "[skip-ci] v${version}",
+    "commitMessage": "v${version} [skip-ci]",
+    "tagAnnotation": "v${version} [skip-ci]",
     "tagName": "v${version}"
   },
   "npm": {
