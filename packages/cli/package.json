@@ -1,6 +1,5 @@
 {
-  "name": "better-tmux/cli",
-  "version": "0.0.10",
+  "name": "cli",
   "module": "index.js",
   "type": "module",
   "scripts": {

@@ -6,7 +6,7 @@
     },
     "@release-it/bumper": {
       "in": "packages/lib/package.json",
-      "out": "packages/lib/package.json"
+      "out": ["packages/lib/package.json", "packages/cli/package.json"]
     }
   },
   "github": {

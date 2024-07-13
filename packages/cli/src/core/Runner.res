@@ -1,4 +1,4 @@
-@module("../../package.json") external packageJson: {..} = "default"
+@module("../../lib/package.json") external packageJson: {..} = "default"
 
 type flags<'value> = {file: 'value, version: 'value}
 
