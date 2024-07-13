@@ -11,6 +11,10 @@ export type Theme =
   | "catppuccin-frappe"
   | "nord"
   | "dracula"
+  | "onedark"
+  | "onelight"
+  | "onedark-dark"
+  | "onedark-vivid"
 
 export type Status = {
   fg?: string,
