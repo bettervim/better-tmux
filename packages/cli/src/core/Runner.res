@@ -1,5 +1,3 @@
-@module("../../lib/package.json") external packageJson: {..} = "default"
-
 type flags<'value> = {file: 'value, version: 'value}
 
 let run = async () => {
@@ -37,6 +35,6 @@ let run = async () => {
 
   switch values.version {
     | None => ()
-    | Some(_) => Console.log(`better-tmux@${packageJson["version"]} 🚀`)
+    | Some(_) => Console.log(`better-tmux 🚀`)
   }
 }
