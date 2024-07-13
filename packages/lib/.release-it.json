@@ -12,8 +12,7 @@
       "out": "packages/lib/package.json"
     }
   },
-  "git": false,
   "github": {
-    "release": false
+    "release": true
   }
 }
