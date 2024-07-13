@@ -6,4 +6,7 @@ type themePalette = {
 }
 
 @module("better-tmux")
-external themes: Dict.t<themePalette> = "themes"
+external fallback: themePalette = "catppuccinMocha"
+
+@module("better-tmux")
+external getTheme: string => option<themePalette> = "getTheme"
