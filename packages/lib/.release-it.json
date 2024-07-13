@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits"
+      },
+      "infile": "packages/lib/CHANGELOG.md"
+    },
+    "@release-it/bumper": {
+      "in": "packages/lib/package.json",
+      "out": "packages/lib/package.json"
+    }
+  },
+  "git": false,
+  "github": {
+    "release": false
+  }
+}
