@@ -56,4 +56,8 @@ let parse = command =>
   | Bind(key, command, options) => `tmux bind ${key} ${command} ${options->Array.join(" ")}`
   }
 
-let exec = command => command->parse->ChildProcess.execSync->ignore
+let exec = command => {
+  let parsedCommand = command->parse
+  Debug.log(parsedCommand)
+  parsedCommand->ChildProcess.execSync->ignore
+}

@@ -34,7 +34,7 @@ export default {
   ],
   options:{
     setTitlesString: " ",
-    prefix: 'C-c'
+    prefix: 'C-a'
   },
   status: {
     left: <StatusLeft />,
