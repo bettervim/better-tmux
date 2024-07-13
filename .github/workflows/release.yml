@@ -44,16 +44,11 @@ jobs:
         run: bash ./scripts/build-cli.sh
         
       - name: Release
-        run: |
-         if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
-            exit 0
-          fi
-          pnpm release-it --ci --increment=${{ github.event.inputs.versionType }} --config=packages/lib/.release-it.json
+        run: pnpm release-it --ci --increment=${{ github.event.inputs.versionType }} --config=packages/lib/.release-it.json
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN }}
       - name: Publish npm package
         run: |
           cd packages/lib
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
           npm publish --access=public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
