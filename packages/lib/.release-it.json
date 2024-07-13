@@ -12,6 +12,11 @@
   "github": {
     "release": true
   },
+  "git": {
+    "commitMessage": "[skip-ci] v${version}",
+    "tagAnnotation": "[skip-ci] v${version}",
+    "tagName": "v${version}"
+  },
   "npm": {
     "publish": false
   }
