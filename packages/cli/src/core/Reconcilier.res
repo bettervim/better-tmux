@@ -35,7 +35,6 @@ let reconcilier = Reconcilier.create({
   },
   createTextInstance: text => TextElement(text),
   prepareUpdate: (_, __, _, _) => {
-    Console.log("prepareUpdate")
     Obj.magic()
   },
   commitUpdate: (_, _) => {
