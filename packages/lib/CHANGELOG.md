@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixes 🐛
 - Fixed background and foreground color for default window
-
+- Removed unused warning messages
 
 ## [0.0.10] - 2024-07-13
 
