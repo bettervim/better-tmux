@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm rescript build -w",
-    "rs:build": "pnpm rescript build",
+    "build": "pnpm rescript build",
     "reload": "bun src/Main.res.js --file ../../examples/index.tsx"
   },
   "dependencies": {
