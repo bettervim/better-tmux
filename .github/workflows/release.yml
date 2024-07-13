@@ -1,0 +1,55 @@
+name: Release
+run-name: 'Release a [${{ github.event.inputs.versionType }}] version of better-tmux'
+'on':
+  workflow_dispatch:
+    inputs:
+      versionType:
+        description: Version type
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Build Project
+        run: pnpm turbo build
+        
+      - name: Generate CLI executable
+        run: bash ./scripts/build-cli.sh
+        
+      - name: Release
+        run: |
+         if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
+            exit 0
+          fi
+          pnpm release-it --config=packages/lib/.release-it.json
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Publish npm package
+        run: |
+          cd packages/lib
+          npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
