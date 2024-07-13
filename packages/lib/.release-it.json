@@ -10,7 +10,8 @@
     }
   },
   "github": {
-    "release": true
+    "release": true,
+    "assets": [".build/*"]
   },
   "git": {
     "commitMessage": "[skip-ci] v${version}",
