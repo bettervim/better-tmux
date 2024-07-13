@@ -77,6 +77,32 @@ const onedarkVivid = {
   secondary: "#d19a66",
 }
 
+const tokyonightStorm = {
+  foreground: "#c0caf5",
+  background: "#24283b",
+  primary: "#7aa2f7",
+  secondary: "#9ece6a",
+}
+
+const tokyonightMoon = {
+  foreground: "#c8d3f5",
+  background: "#222436",
+  primary: "#82aaff",
+  secondary: "#c3e88d",
+}
+
+const tokyonightDay = {
+  foreground: "#222436",
+  background: "#c8d3f5",
+  primary: "#82aaff",
+  secondary: "#c3e88d",
+}
+
+const tokyonight = {
+  ...tokyonightStorm,
+  background: "#1a1b26",
+}
+
 export function getTheme(theme?: Theme): ThemePalette {
   const selectedTheme = theme || process.env.BETTER_TMUX_THEME || 'catppuccin-mocha'
 
@@ -91,6 +117,10 @@ export function getTheme(theme?: Theme): ThemePalette {
     case 'onelight': return onelight
     case 'onedark-vivid': return onedarkVivid
     case 'onedark-dark': return onedarkDark
+    case 'tokyonight': return tokyonight
+    case 'tokyonight-storm': return tokyonightStorm
+    case 'tokyonight-moon': return tokyonightMoon
+    case 'tokyonight-day': return tokyonightDay
   }
 }
 
