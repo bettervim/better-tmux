@@ -29,6 +29,11 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
+      - name: Configure CI user
+        run: |
+          git config --global user.email "vmarcosp.pereira@gmail.com"
+          git config --global user.name "vmarcosp"
+        
       - name: Install dependencies
         run: pnpm install
       
