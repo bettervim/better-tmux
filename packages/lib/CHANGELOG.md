@@ -9,3 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixes 🐛
 - Fixed background and foreground color for default window
+
+
+## [0.0.10] - 2024-07-13
+
+### Features 🚀 
+- Support for custom bindings by @vmarcosp in https://github.com/bettervim/better-tmux/pull/11
