@@ -19,5 +19,6 @@
   },
   "trustedDependencies": [
     "rescript"
-  ]
+  ],
+  "version": "0.0.11"
 }
