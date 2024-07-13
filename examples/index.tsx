@@ -25,7 +25,7 @@ const StatusRight = () => (
 )
 
 export default {
-  theme: 'catppuccin-latte',
+  theme: 'onedark-vivid',
   bindings: [
     {
       key: 'x',
