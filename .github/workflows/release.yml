@@ -44,9 +44,9 @@ jobs:
          if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
             exit 0
           fi
-          pnpm release-it --config=packages/lib/.release-it.json
+          pnpm release-it --ci --increment=${{ github.event.inputs.versionType }} --config=packages/lib/.release-it.json
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN }}
       - name: Publish npm package
         run: |
           cd packages/lib
