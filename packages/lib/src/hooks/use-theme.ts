@@ -103,6 +103,27 @@ const tokyonight = {
   background: "#1a1b26",
 }
 
+const ayu = {
+  foreground: "#cfcebe",
+  background: "#212733",
+  primary: "#e59448",
+  secondary: "#b7cb52",
+}
+
+const ayuDark = {
+  foreground: "#cfcebe",
+  background: "#0f141a",
+  primary: "#ff7734",
+  secondary: "#b7cb52",
+}
+
+const ayuLight = {
+  foreground: "#616772",
+  background: "#fafafa",
+  primary: "#ff7734",
+  secondary: "#b7cb52",
+}
+
 export function getTheme(theme?: Theme): ThemePalette {
   const selectedTheme = theme || process.env.BETTER_TMUX_THEME || 'catppuccin-mocha'
 
@@ -121,6 +142,9 @@ export function getTheme(theme?: Theme): ThemePalette {
     case 'tokyonight-storm': return tokyonightStorm
     case 'tokyonight-moon': return tokyonightMoon
     case 'tokyonight-day': return tokyonightDay
+    case 'ayu': return ayu
+    case 'ayu-dark': return ayuDark
+    case 'ayu-light': return ayuLight
   }
 }
 

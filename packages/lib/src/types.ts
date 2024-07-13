@@ -19,6 +19,9 @@ export type Theme =
   | "tokyonight-moon"
   | "tokyonight-day"
   | "tokyonight-storm"
+  | "ayu"
+  | "ayu-dark"
+  | "ayu-light"
 
 export type Status = {
   fg?: string,
