@@ -25,6 +25,17 @@ export type Theme =
   | "catppuccin-frappe"
   | "nord"
   | "dracula"
+  | "onedark"
+  | "onelight"
+  | "onedark-dark"
+  | "onedark-vivid"
+  | "tokyonight"
+  | "tokyonight-moon"
+  | "tokyonight-day"
+  | "tokyonight-storm"
+  | "ayu"
+  | "ayu-dark"
+  | "ayu-light"
 
 export type Status = {
   fg?: string,
