@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add option to override globals by @fdaciuk in https://github.com/bettervim/better-tmux/pull/15
 
 ### Features 🚀 
-- Added support for popular themes by @vmarcosp in https://github.com/bettervim/better-tmux/pull/14
+- Added support for popular themes (by @vmarcosp in https://github.com/bettervim/better-tmux/pull/14) including:
    - Ayu
    - Onedark
    - Tokyonight
