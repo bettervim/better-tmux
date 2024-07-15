@@ -2,7 +2,6 @@ let tap = (opt, fn) => opt->Option.map(value => fn(value))->ignore
 
 let execute = (options: Config.options) => {
   options.mouse->tap(v => Tmux.exec(SetGlobal(Mouse(v))))
-  options.terminalOverrides->tap(v => Tmux.exec(SetGlobal(TerminalOverrides(v))))
   options.escapeTime->tap(v => Tmux.exec(SetGlobal(EscapeTime(v))))
   options.paneBaseIndex->tap(v => Tmux.exec(SetGlobal(PaneBaseIndex(v))))
   options.statusKeys->tap(v => Tmux.exec(SetGlobal(StatusKeys(v))))
@@ -13,6 +12,7 @@ let execute = (options: Config.options) => {
   options.baseIndex->tap(v => Tmux.exec(SetGlobal(BaseIndex(v))))
   options.historyLimit->tap(v => Tmux.exec(SetGlobal(HistoryLimit(v))))
   options.defaultTerminal->tap(v => Tmux.exec(SetGlobal(DefaultTerminal(v))))
+  options.terminalOverrides->tap(v => Tmux.exec(SetOverrideGlobal(TerminalOverrides(v))))
   options.renumberWindows->tap(v => Tmux.exec(SetGlobal(RenumberWindows(v))))
   options.aggressiveResize->tap(v => Tmux.exec(SetGlobal(AggressiveResize(v))))
 }
