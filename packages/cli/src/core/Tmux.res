@@ -23,6 +23,7 @@ type options =
 
 type command =
   | SetGlobal(options)
+  | SetOverrideGlobal(options)
   | Bind(string, string, array<string>)
 
 let parseOptions = options =>
@@ -53,6 +54,7 @@ let parseOptions = options =>
 let parse = command =>
   switch command {
   | SetGlobal(options) => `tmux set -g ${options->parseOptions}`
+  | SetOverrideGlobal(options) => `tmux set -ga ${options->parseOptions}`
   | Bind(key, command, options) => `tmux bind ${key} ${command} ${options->Array.join(" ")}`
   }
 
