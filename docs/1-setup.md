@@ -55,6 +55,8 @@ To update `better-tmux` CLI, run the following command:
 ```sh
 curl -sSL https://raw.githubusercontent.com/bettervim/better-tmux/main/scripts/update.sh | bash
 ```
+> [!TIP]
+>  Additionally, you need to update your `better-tmux` package inside of your tmux config using npm / yarn (or pnpm / bun / etc).
 
 ## Uninstall
 To uninstall `better-tmux` CLI, run the following command:
