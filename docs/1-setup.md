@@ -41,7 +41,7 @@ pnpm install
 
 To test changes in your configuration, you'll need to run the better-tmux CLI, specifying your configuration file. For example:
 ```sh
-better-tmux ~/better-tmux/index.tsx
+better-tmux --file ~/better-tmux/index.tsx
 ```
 
 We recommend you to modify your `tmux.conf` to execute the CLI on every reload and point to the `index.tsx` of your config folder:
