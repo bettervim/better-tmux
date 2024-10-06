@@ -81,6 +81,9 @@ importers:
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
 
 packages:
 
@@ -1676,6 +1679,11 @@ packages:
 
   typescript@5.5.3:
     resolution: {integrity: sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3493,6 +3501,8 @@ snapshots:
       is-typedarray: 1.0.0
 
   typescript@5.5.3: {}
+
+  typescript@5.6.2: {}
 
   undici-types@5.26.5: {}
 
