@@ -1,5 +1,7 @@
 type flags<'value> = {file: 'value, version: 'value}
 
+@module("./version.js") external version: string = "version"
+
 let run = async () => {
   let options: flags<BunX.flag> = {
     file: {type_: "string"},
@@ -35,6 +37,6 @@ let run = async () => {
 
   switch values.version {
   | None => ()
-  | Some(_) => Console.log(`better-tmux 🚀`)
+  | Some(_) => Console.log(`better-tmux @ ${version} 🚀`)
   }
 }
