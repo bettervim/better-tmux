@@ -41,7 +41,7 @@ jobs:
         run: pnpm turbo build
         
       - name: Generate CLI executable
-        run: 
+        run: |
           bash ./scripts/bump-cli-version.sh ${{ github.event.inputs.versionType }}
           bash ./scripts/build-cli.sh
         
