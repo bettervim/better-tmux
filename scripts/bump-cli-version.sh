@@ -10,6 +10,8 @@ version_type=$1
 
 cd packages/cli
 npm version $version_type --no-git-tag-version
+git add .
+git commit -m "bumping CLI version [skip-ci]"
 
 if [ $? -eq 0 ]; then
   echo "Version bumped successfully to $(npm pkg get version | tr -d '\"')"
