@@ -8,6 +8,7 @@
     "release": "release-it"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@release-it/bumper": "^6.0.1",
     "@release-it/keep-a-changelog": "^5.0.0",
     "release-it": "^17.5.0",
