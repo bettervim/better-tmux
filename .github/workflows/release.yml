@@ -41,7 +41,9 @@ jobs:
         run: pnpm turbo build
         
       - name: Generate CLI executable
-        run: bash ./scripts/build-cli.sh
+        run: 
+        bash ./scripts/bump-cli-version.sh ${{ github.event.inputs.versionType }}
+        bash ./scripts/build-cli.sh
         
       - name: Release
         run: pnpm release-it --ci --increment=${{ github.event.inputs.versionType }} --config=packages/lib/.release-it.json
