@@ -1,45 +1,56 @@
-import { Box, BetterTmuxConfig, WindowConfig, useTheme, tmux } from 'better-tmux'
-import { Date, SessionName } from 'better-tmux/widgets'
+import {
+  Box,
+  type BetterTmuxConfig,
+  type WindowConfig,
+  useTheme,
+  tmux,
+} from "better-tmux";
+import { Calendar, SessionName } from "better-tmux/widgets";
 
 const Window = ({ type, number, name }: WindowConfig) => {
-  let theme = useTheme()
-  let styles = type === "active" ? { bg: theme.primary, fg: theme.background, bold: true } : {}
+  const theme = useTheme();
+  const styles =
+    type === "active"
+      ? { bg: theme.primary, fg: theme.background, bold: true }
+      : {};
 
   return (
     <Box padding={1} {...styles}>
       {number}: {name}
     </Box>
-  )
-}
+  );
+};
 
 const StatusLeft = () => (
   <Box>
     <SessionName />
   </Box>
-)
+);
 
 const StatusRight = () => (
   <Box>
-    <Date format={`${tmux.globals.abbreviated_month} ${tmux.globals.day}`} />
+    <Calendar
+      format={`${tmux.globals.abbreviated_month} ${tmux.globals.day}`}
+    />
   </Box>
-)
+);
 
 export default {
-  theme: 'ayu-light',
+  theme: "ayu-light",
   bindings: [
     {
-      key: 'x',
-      command: 'kill-window'
-    }
+      key: "x",
+      command: "kill-window",
+    },
   ],
-  options:{
+  options: {
     setTitlesString: " ",
-    prefix: 'C-a'
+    prefix: "C-a",
   },
   status: {
     left: <StatusLeft />,
     right: <StatusRight />,
-    position: 'top'
+    position: "top",
   },
-  window: (props) => <Window {...props} />
-} satisfies BetterTmuxConfig
+  window: (props) => <Window {...props} />,
+} satisfies BetterTmuxConfig;

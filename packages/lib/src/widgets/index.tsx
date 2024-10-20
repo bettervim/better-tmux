@@ -1,75 +1,60 @@
-import { tmux } from "../tmux.js"
-import { Widget, WidgetIcon, WidgetLabel } from "./widget.js"
-export * from './widget.js'
+import { tmux } from "../tmux.js";
+import { Widget, WidgetIcon, WidgetLabel } from "./widget.js";
+export * from "./widget.js";
 
 type CommonModuleProps = {
-  icon?: string,
-}
+  icon?: string;
+};
 
-type HostnameProps = CommonModuleProps
+type HostnameProps = CommonModuleProps;
 
 export const Hostname = ({ icon }: HostnameProps) => {
   return (
     <Widget>
-      <WidgetIcon>
-        {icon ?? ""}
-      </WidgetIcon>
-      <WidgetLabel>
-        {tmux.globals.hostname}
-      </WidgetLabel>
+      <WidgetIcon>{icon ?? ""}</WidgetIcon>
+      <WidgetLabel>{tmux.globals.hostname}</WidgetLabel>
     </Widget>
-  )
-}
+  );
+};
 
-type SessionNameProps = CommonModuleProps
+type SessionNameProps = CommonModuleProps;
 
 export const SessionName = ({ icon }: SessionNameProps) => {
   return (
     <Widget>
-      <WidgetIcon>
-        {icon ?? ""}
-      </WidgetIcon>
-      <WidgetLabel>
-        {tmux.globals.sessionName}
-      </WidgetLabel>
+      <WidgetIcon>{icon ?? ""}</WidgetIcon>
+      <WidgetLabel>{tmux.globals.sessionName}</WidgetLabel>
     </Widget>
-  )
-}
+  );
+};
 
 type ClockProps = CommonModuleProps & {
-  format?: string
-}
+  format?: string;
+};
 
 export const Clock = ({ format, icon }: ClockProps) => {
-  const value = format ?? `${tmux.globals.hour_24}:${tmux.globals.minute}`
+  const value = format ?? `${tmux.globals.hour_24}:${tmux.globals.minute}`;
 
   return (
     <Widget>
-      <WidgetIcon>
-        {icon ?? ""}
-      </WidgetIcon>
-      <WidgetLabel>
-        {value}
-      </WidgetLabel>
+      <WidgetIcon>{icon ?? ""}</WidgetIcon>
+      <WidgetLabel>{value}</WidgetLabel>
     </Widget>
-  )
-}
+  );
+};
 
-type DateProps = CommonModuleProps & {
-  format?: string
-}
+type CalendarProps = CommonModuleProps & {
+  format?: string;
+};
 
-export const Date = ({ format, icon }: DateProps) => {
-  const value = format ?? `${tmux.globals.month}-${tmux.globals.day}-${tmux.globals.year}`
+export const Calendar = ({ format, icon }: CalendarProps) => {
+  const value =
+    format ?? `${tmux.globals.month}-${tmux.globals.day}-${tmux.globals.year}`;
 
   return (
     <Widget>
-      <WidgetIcon>
-        {icon ?? ""}
-      </WidgetIcon>
-      <WidgetLabel>
-        {value}
-      </WidgetLabel>
+      <WidgetIcon>{icon ?? ""}</WidgetIcon>
+      <WidgetLabel>{value}</WidgetLabel>
     </Widget>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import { Theme } from './types.ts'
-import { ElementProps } from "./components.tsx"
+import type { Theme } from './types.ts'
+import type { ElementProps } from "./components.tsx"
 
 declare global {
   namespace JSX {
@@ -16,5 +16,3 @@ declare global {
     }
   }
 }
-
-export { }

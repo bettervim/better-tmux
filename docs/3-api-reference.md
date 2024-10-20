@@ -189,7 +189,7 @@ const MyStatusLeft = () => <Box>
 | -------------- | ------- |
 | `icon`         | string  |
 
-### `<Date />`
+### `<Calendar />`
 | Prop           | Type    |
 | -------------- | ------- |
 | `icon`         | string  |

@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 import { useTheme } from "../hooks/use-theme.js"
 
 export const Widget = ({ children }: PropsWithChildren) => {
